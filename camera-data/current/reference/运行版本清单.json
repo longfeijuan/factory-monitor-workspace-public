@@ -1,0 +1,27 @@
+{
+  "schema_version": "camera-maintenance-release/v1",
+  "maintenance_version": "1.0.1",
+  "created_at": "2026-08-25T19:38:05+08:00",
+  "package_id": "公司摄像头主管协作包_20260825_r01",
+  "camera_count": 160,
+  "recorder_count": 4,
+  "change_count": 54,
+  "baseline": {
+    "source_zip_name": "公司摄像头主管协作包_20260802.zip",
+    "source_zip_sha256": "6cea4b5bbf3c925d8b1f6ba62aefcc16279ea0bde88d11b9f794246b4851c314",
+    "source_package_date": "2026-08-02",
+    "source_runtime_version": "0.21.0",
+    "source_release_id": "release-5affc732731c3dcc",
+    "manifest_files_checked": 22,
+    "camera_count": 172,
+    "recorder_count": 4
+  },
+  "privacy": {
+    "contains_accounts": false,
+    "contains_credentials": false,
+    "contains_network_addresses": false,
+    "contains_passwords": false,
+    "contains_pixels": false,
+    "contains_runtime_state": false
+  }
+}

@@ -1,0 +1,20 @@
+version = 1
+name = "Factory Monitor"
+
+[setup]
+script = "python3 -m pip install -r requirements-monitor.txt && pnpm install --frozen-lockfile"
+
+[setup.win32]
+script = "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/install-windows.ps1 -SkipSystemDependencies -NoCodexLaunch"
+
+[[actions]]
+name = "Windows 全量自检"
+icon = "test"
+command = "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/verify-windows.ps1"
+platform = "win32"
+
+[[actions]]
+name = "启动只读连接器"
+icon = "run"
+command = "pnpm run connector"
+platform = "win32"

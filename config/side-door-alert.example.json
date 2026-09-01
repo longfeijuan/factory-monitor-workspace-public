@@ -1,0 +1,37 @@
+{
+  "location": "58号侧门（一楼侧门）",
+  "recorder": "nvr-main-02",
+  "channel": 5,
+  "dws": "dws",
+  "baseline_path": "side-door-closed-baseline.jpg",
+  "runtime_dir": "../runtime/side-door-alert",
+  "poll_seconds": 15,
+  "persist_seconds": 60,
+  "unavailable_persist_seconds": 90,
+  "recovery_seconds": 60,
+  "cooldown_seconds": 1800,
+  "notification_retry_seconds": 60,
+  "frozen_frame_samples": 3,
+  "evidence_retention_days": 7,
+  "detector": {
+    "use_bottom_gap": false,
+    "door_face_roi": [0.23, 0.13, 0.63, 0.61],
+    "center_seam_roi": [0.405, 0.20, 0.433, 0.58],
+    "bottom_gap_roi": [0.24, 0.57, 0.62, 0.69],
+    "thresholds": {
+      "min_frame_mean": 8,
+      "min_frame_stddev": 4,
+      "open_baseline_diff": 0.26,
+      "center_contrast": 30,
+      "center_bright_fraction": 0.08,
+      "bottom_contrast": 45,
+      "bottom_bright_run": 0.22
+    }
+  },
+  "notifier": {
+    "mode": "chat",
+    "dws": "dws",
+    "receiver_user_id": "REPLACE_WITH_APPROVED_USER_ID",
+    "dry_run": true
+  }
+}

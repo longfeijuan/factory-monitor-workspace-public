@@ -1,0 +1,243 @@
+#!/usr/bin/env python3
+"""Offline-safe portability checks for the monitoring workspace."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import platform
+import shutil
+import subprocess
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+CURRENT = ROOT / "camera-data" / "current"
+
+
+def verify_manifest() -> tuple[bool, str]:
+    manifest = CURRENT / "MANIFEST.sha256"
+    source = CURRENT / "SOURCE.json"
+    if not manifest.is_file():
+        return False, "缺少camera-data/current/MANIFEST.sha256"
+    if not source.is_file():
+        return False, "缺少camera-data/current/SOURCE.json"
+    for line in manifest.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        expected, relative = line.split(maxsplit=1)
+        target = CURRENT / relative.removeprefix("./")
+        if not target.is_file():
+            return False, f"资料包缺少：{relative}"
+        actual = hashlib.sha256(target.read_bytes()).hexdigest()
+        if actual != expected:
+            return False, f"资料包校验失败：{relative}"
+    metadata = json.loads(source.read_text(encoding="utf-8"))
+    filename = str(metadata.get("filename", "未知文件"))
+    create_time = str(metadata.get("create_time", "未知时间"))
+    return True, f"仓库内置脱敏包校验通过：{filename}（发布于{create_time}）"
+
+
+def catalog_status() -> tuple[bool, str]:
+    path = ROOT / "public" / "data" / "cameras.json"
+    if not path.is_file():
+        return False, "缺少public/data/cameras.json"
+    rows = json.loads(path.read_text(encoding="utf-8"))
+    inventory = json.loads((CURRENT / "data" / "摄像头脱敏库存.json").read_text(encoding="utf-8"))
+    expected = int(inventory["expected_channel_count"])
+    if len(rows) != expected:
+        return False, f"工作台目录为{len(rows)}路，当前资料包为{expected}路"
+    return True, f"工作台目录数量正确：{expected}路"
+
+
+def gate58_contract_status() -> tuple[bool, str]:
+    config_path = ROOT / "config" / "gate58-people-crossing-v2.json"
+    skill_path = ROOT / ".agents" / "skills" / "audit-gate58-people-crossing" / "SKILL.md"
+    contract_path = ROOT / "scripts" / "gate58_review_contract.py"
+    compare_path = ROOT / "scripts" / "compare_gate58_results.py"
+    common_path = ROOT / "scripts" / "gate58_common.py"
+    pending_path = ROOT / "scripts" / "gate58_pending_manifest.py"
+    apply_pending_path = ROOT / "scripts" / "gate58_apply_pending_reviews.py"
+    for target in (
+        config_path,
+        skill_path,
+        contract_path,
+        compare_path,
+        common_path,
+        pending_path,
+        apply_pending_path,
+    ):
+        if not target.is_file():
+            return False, f"58号门跨电脑契约缺少：{target.relative_to(ROOT)}"
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    if config.get("policy_version") != "gate58-people-crossing-v2":
+        return False, "58号门规则版本不是gate58-people-crossing-v2"
+    camera = config.get("camera", {})
+    if (camera.get("recorder"), camera.get("channel"), camera.get("track")) != (
+        "nvr-main-02",
+        1,
+        101,
+    ):
+        return False, "58号门固定映射不是nvr-main-02/channel1/track101"
+    quality = config.get("quality_gate", {})
+    if (
+        quality.get("maximum_cross_computer_enter_difference"),
+        quality.get("maximum_cross_computer_exit_difference"),
+        quality.get("maximum_cross_computer_total_difference"),
+    ) != (2, 2, 2):
+        return False, "58号门跨电脑偏差目标不是进入/外出/合计各≤2"
+    return True, "58号门v2单次提问收敛流程与跨电脑≤2人次验收已安装"
+
+
+def reproducibility_contract_status() -> tuple[bool, str]:
+    config_path = ROOT / "config" / "monitor-reproducibility-v1.json"
+    required = (
+        config_path,
+        ROOT / "scripts" / "monitor_query_context.py",
+        ROOT / "scripts" / "monitor_result_contract.py",
+        ROOT / "scripts" / "compare_monitor_results.py",
+    )
+    for target in required:
+        if not target.is_file():
+            return False, f"全项目跨电脑契约缺少：{target.relative_to(ROOT)}"
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    if config.get("policy_version") != "monitor-project-reproducibility-v1":
+        return False, "全项目跨电脑规则版本不正确"
+    tolerance = config.get("default_tolerances", {})
+    if tolerance != {"count": 2, "percentage_point": 1.0, "minutes": 5}:
+        return False, "全项目默认偏差不是计数2、比率1.0个百分点、时长5分钟"
+    return True, "全项目查询指纹、统一结果封装与跨电脑偏差验收已安装"
+
+
+def cnc_floor1_runtime_contract_status() -> tuple[bool, str]:
+    config_path = ROOT / "config" / "cnc-floor1-runtime-v2.json"
+    required = (
+        config_path,
+        ROOT / ".agents" / "skills" / "cnc-floor1-runtime-audit" / "SKILL.md",
+        ROOT
+        / ".agents"
+        / "skills"
+        / "cnc-floor1-runtime-audit"
+        / "scripts"
+        / "collect_runtime.py",
+        ROOT / "scripts" / "analyze_cnc_six_green.py",
+        ROOT / "scripts" / "analyze_cnc_six_green_blink.py",
+    )
+    for target in required:
+        if not target.is_file():
+            return False, f"一楼电脑锣开机率契约缺少：{target.relative_to(ROOT)}"
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    if config.get("policy_version") != "cnc-floor1-green-blink-v2.1":
+        return False, "一楼电脑锣开机率规则不是cnc-floor1-green-blink-v2.1"
+    camera = config.get("camera", {})
+    if (camera.get("recorder"), camera.get("channel"), camera.get("track")) != (
+        "nvr-main-02",
+        49,
+        4901,
+    ):
+        return False, "一楼电脑锣开机率固定映射不是nvr-main-02/channel49/track4901"
+    calibration = config.get("calibration", {})
+    if calibration.get("reference_size") != [1280, 720]:
+        return False, "一楼电脑锣当前标定画面不是1280x720"
+    rois = calibration.get("machine_rois", {})
+    if set(rois) != {"1", "2", "3", "4", "5", "6"}:
+        return False, "一楼电脑锣没有完整六台灯位"
+    if any(not isinstance(roi, list) or len(roi) != 4 for roi in rois.values()):
+        return False, "一楼电脑锣灯位坐标格式不正确"
+    tolerance = config.get("quality_gate", {}).get(
+        "maximum_cross_computer_rate_difference_pp"
+    )
+    if tolerance != 1.0:
+        return False, "一楼电脑锣跨电脑比率偏差目标不是≤1.0个百分点"
+    sampling = config.get("sampling", {})
+    if (
+        sampling.get("ambiguous_review_window_seconds"),
+        sampling.get("ambiguous_review_minimum_span_seconds"),
+        sampling.get("strong_single_frame_green_pixels"),
+    ) != (20.0, 19.0, 12):
+        return False, "一楼电脑锣临界绿帧规则不是20秒/至少19秒/强单帧12像素"
+    return True, "一楼电脑锣v2.1固定通道49、六灯位、临界点延长复核及跨电脑≤1.0个百分点契约已安装"
+
+
+def git_boundary_status() -> tuple[bool, str]:
+    if not (ROOT / ".git").exists():
+        return True, "当前是导出目录，跳过Git跟踪边界检查"
+    completed = subprocess.run(
+        ["git", "ls-files"], cwd=ROOT, check=True, capture_output=True, text=True, timeout=20
+    )
+    forbidden = (
+        "audit-output/",
+        "output/",
+        "outputs/",
+        "tmp/",
+        "runtime/",
+        "secure-state/",
+        "camera-data/private/",
+    )
+    bad = [line for line in completed.stdout.splitlines() if line.startswith(forbidden)]
+    if bad:
+        return False, "Git错误跟踪了本机运行资料：" + ", ".join(bad[:5])
+    return True, "Git未跟踪录像、截图、运行结果或私密状态目录"
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="监控项目跨电脑自检")
+    parser.add_argument("--live", action="store_true", help="同时要求钉钉CLI和本机实时连接条件")
+    parser.add_argument("--json", action="store_true")
+    args = parser.parse_args()
+
+    checks: list[dict[str, object]] = []
+    for name, check in (
+        ("sanitized_package", verify_manifest),
+        ("generated_catalog", catalog_status),
+        ("reproducibility_contract", reproducibility_contract_status),
+        ("gate58_contract", gate58_contract_status),
+        ("cnc_floor1_runtime_contract", cnc_floor1_runtime_contract_status),
+        ("git_data_boundary", git_boundary_status),
+    ):
+        try:
+            ok, message = check()
+        except (OSError, ValueError, KeyError, json.JSONDecodeError, subprocess.SubprocessError) as error:
+            ok, message = False, f"{error.__class__.__name__}: {error}"
+        checks.append({"name": name, "ok": ok, "required": True, "message": message})
+
+    python_executable = shutil.which("python3") or shutil.which("python") or sys.executable
+    tools = {
+        "python": python_executable,
+        "node": shutil.which("node"),
+        "pnpm": shutil.which("pnpm"),
+        "dws": shutil.which("dws") or str(Path.home() / ".local" / "bin" / "dws"),
+    }
+    for name, value in tools.items():
+        exists = bool(value and Path(value).exists())
+        required = name in {"python", "node", "pnpm"} or (args.live and name == "dws")
+        checks.append(
+            {
+                "name": f"tool_{name}",
+                "ok": exists,
+                "required": required,
+                "message": f"{name}: {value if exists else '未找到'}",
+            }
+        )
+
+    if args.live:
+        live_message = "macOS钥匙串可用；首次运行仍需从钉钉导入只读凭据"
+        if platform.system() != "Darwin":
+            live_message = "非macOS系统将只在连接器进程内存中保存本次导入的凭据"
+        checks.append({"name": "credential_mode", "ok": True, "required": False, "message": live_message})
+
+    failed = [item for item in checks if item["required"] and not item["ok"]]
+    payload = {"ok": not failed, "project": str(ROOT), "checks": checks}
+    if args.json:
+        print(json.dumps(payload, ensure_ascii=False, indent=2))
+    else:
+        for item in checks:
+            symbol = "✓" if item["ok"] else ("✗" if item["required"] else "!")
+            print(f"{symbol} {item['message']}")
+        print("自检通过" if not failed else "自检未通过")
+    return 0 if not failed else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

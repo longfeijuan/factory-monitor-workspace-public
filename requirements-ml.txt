@@ -1,0 +1,2 @@
+-r requirements-monitor.txt
+ultralytics>=8,<9

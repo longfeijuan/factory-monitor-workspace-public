@@ -1,0 +1,29 @@
+{
+  "schema_version": "caiduo-machine-runtime-cameras/v1",
+  "cameras": {
+    "022": {
+      "camera_id": "cam-nvr-caiduo-022",
+      "machine_name": "高速锯板机",
+      "recorder": "nvr-caiduo",
+      "keychain_service": "com.codex.gate-person-audit.nvr-caiduo",
+      "channel": 22,
+      "track_id": 2201,
+      "roi_reference_resolution": [2560, 1920],
+      "roi": [1160, 680, 1500, 920],
+      "detector": {
+        "type": "green_status_lamp",
+        "running_green_pixels_threshold": 500,
+        "green_min": 130,
+        "green_minus_red_min": 35,
+        "green_minus_blue_min": 20,
+        "amber_red_min": 150,
+        "amber_green_min": 70,
+        "amber_red_minus_green_min": 35,
+        "amber_green_minus_blue_min": 15
+      },
+      "sampling_interval_seconds": 60,
+      "status": "validated",
+      "validated_on": "2026-08-15"
+    }
+  }
+}

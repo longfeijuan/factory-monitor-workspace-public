@@ -1,0 +1,2125 @@
+{
+  "channels": [
+    {
+      "camera_id": "cam-nvr-caiduo-001",
+      "channel_ref": "1",
+      "display_name_claim": "2号通道中段",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": false,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "false",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-002",
+      "channel_ref": "2",
+      "display_name_claim": "铝板切料",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-003",
+      "channel_ref": "3",
+      "display_name_claim": "铝排切料",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": false,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "false",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-004",
+      "channel_ref": "4",
+      "display_name_claim": "铝板仓门前",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": false,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "false",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-005",
+      "channel_ref": "5",
+      "display_name_claim": "3号出货门",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-006",
+      "channel_ref": "6",
+      "display_name_claim": "出货通道",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": false,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "false",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-007",
+      "channel_ref": "7",
+      "display_name_claim": "中间过道前2台",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-008",
+      "channel_ref": "8",
+      "display_name_claim": "3号通道",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": false,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "false",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-009",
+      "channel_ref": "9",
+      "display_name_claim": "3号出货门2",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-010",
+      "channel_ref": "10",
+      "display_name_claim": "双头铣1",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-011",
+      "channel_ref": "11",
+      "display_name_claim": "磨床完工侧面",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-012",
+      "channel_ref": "12",
+      "display_name_claim": "中间过道后3台",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-013",
+      "channel_ref": "13",
+      "display_name_claim": "1号通道中间",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-014",
+      "channel_ref": "14",
+      "display_name_claim": "毛板批量1",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": false,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "false",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-015",
+      "channel_ref": "15",
+      "display_name_claim": "3号通道锯床1",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-016",
+      "channel_ref": "16",
+      "display_name_claim": "毛板批量2",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-017",
+      "channel_ref": "17",
+      "display_name_claim": "磨床2号",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-019",
+      "channel_ref": "19",
+      "display_name_claim": "磨床1号",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": false,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "false",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-021",
+      "channel_ref": "21",
+      "display_name_claim": "散切1号机",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-022",
+      "channel_ref": "22",
+      "display_name_claim": "铝整板机",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-023",
+      "channel_ref": "23",
+      "display_name_claim": "散切机台",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-033",
+      "channel_ref": "33",
+      "display_name_claim": "1号通道锯床",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-034",
+      "channel_ref": "34",
+      "display_name_claim": "3号出货门3",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-035",
+      "channel_ref": "35",
+      "display_name_claim": "2号出货门2",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-037",
+      "channel_ref": "37",
+      "display_name_claim": "Camera 01",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-038",
+      "channel_ref": "38",
+      "display_name_claim": "磨床刷单区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-039",
+      "channel_ref": "39",
+      "display_name_claim": "Camera 01",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-044",
+      "channel_ref": "44",
+      "display_name_claim": "高速机顶部监控",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": false,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "false",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-caiduo-045",
+      "channel_ref": "45",
+      "display_name_claim": "3号通道锯床2",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-001",
+      "channel_ref": "1",
+      "display_name_claim": "石林合",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-002",
+      "channel_ref": "2",
+      "display_name_claim": "中通快递架",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-003",
+      "channel_ref": "3",
+      "display_name_claim": "入库3",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-004",
+      "channel_ref": "4",
+      "display_name_claim": "仓&氧化称数量",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-005",
+      "channel_ref": "5",
+      "display_name_claim": "快递打单区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-006",
+      "channel_ref": "6",
+      "display_name_claim": "仓@入库6架区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-007",
+      "channel_ref": "7",
+      "display_name_claim": "打包台",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-008",
+      "channel_ref": "8",
+      "display_name_claim": "外发P货架",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-009",
+      "channel_ref": "9",
+      "display_name_claim": "仓&QC1桌",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-010",
+      "channel_ref": "10",
+      "display_name_claim": "仓出货扫单区2",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-011",
+      "channel_ref": "11",
+      "display_name_claim": "品检1",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-012",
+      "channel_ref": "12",
+      "display_name_claim": "仓&QC2桌",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-013",
+      "channel_ref": "13",
+      "display_name_claim": "仓&成品入库桌",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-014",
+      "channel_ref": "14",
+      "display_name_claim": "仓&入库2，3架区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-015",
+      "channel_ref": "15",
+      "display_name_claim": "仓&入库1架区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-016",
+      "channel_ref": "16",
+      "display_name_claim": "外%外发库H架区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-017",
+      "channel_ref": "17",
+      "display_name_claim": "仓&氧化出收货区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-018",
+      "channel_ref": "18",
+      "display_name_claim": "QC区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-019",
+      "channel_ref": "19",
+      "display_name_claim": "顺丰快递架",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-020",
+      "channel_ref": "20",
+      "display_name_claim": "仓&外发送货2架",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-021",
+      "channel_ref": "21",
+      "display_name_claim": "外%外发区高",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-022",
+      "channel_ref": "22",
+      "display_name_claim": "仓&出货扫单区1",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-023",
+      "channel_ref": "23",
+      "display_name_claim": "仓&出货扫单区3",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-025",
+      "channel_ref": "25",
+      "display_name_claim": "Camera 01",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-026",
+      "channel_ref": "26",
+      "display_name_claim": "仓&客诉架过道",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-028",
+      "channel_ref": "28",
+      "display_name_claim": "铁皮房车床",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-029",
+      "channel_ref": "29",
+      "display_name_claim": "三楼楼梯口",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-034",
+      "channel_ref": "34",
+      "display_name_claim": "三楼电梯口",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-036",
+      "channel_ref": "36",
+      "display_name_claim": "仓&成品大件区右",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-037",
+      "channel_ref": "37",
+      "display_name_claim": "外%外发库E架区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-039",
+      "channel_ref": "39",
+      "display_name_claim": "U钻打孔区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-041",
+      "channel_ref": "41",
+      "display_name_claim": "厂房后门",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-042",
+      "channel_ref": "42",
+      "display_name_claim": "外发材料入库架",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-043",
+      "channel_ref": "43",
+      "display_name_claim": "仓&打包仓门口",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-044",
+      "channel_ref": "44",
+      "display_name_claim": "仓&入库4，5架区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-046",
+      "channel_ref": "46",
+      "display_name_claim": "外%外发区通道",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-047",
+      "channel_ref": "47",
+      "display_name_claim": "仓&成品区走道",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-048",
+      "channel_ref": "48",
+      "display_name_claim": "阳极分拣区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-049",
+      "channel_ref": "49",
+      "display_name_claim": "简易车床扫单",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-050",
+      "channel_ref": "50",
+      "display_name_claim": "仓&打包台",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-051",
+      "channel_ref": "51",
+      "display_name_claim": "仓&表面处理收货区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-052",
+      "channel_ref": "52",
+      "display_name_claim": "外%外发库D区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-053",
+      "channel_ref": "53",
+      "display_name_claim": "后加工",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-054",
+      "channel_ref": "54",
+      "display_name_claim": "仓&表面处理称重",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-055",
+      "channel_ref": "55",
+      "display_name_claim": "仓&打包仓过道",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-056",
+      "channel_ref": "56",
+      "display_name_claim": "仓&成品库门口",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-057",
+      "channel_ref": "57",
+      "display_name_claim": "仓&客诉架区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-058",
+      "channel_ref": "58",
+      "display_name_claim": "仓&成品大件区左",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-059",
+      "channel_ref": "59",
+      "display_name_claim": "后加工称数",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-060",
+      "channel_ref": "60",
+      "display_name_claim": "仓&打包仓门口外",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-061",
+      "channel_ref": "61",
+      "display_name_claim": "仓&打包仓区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-062",
+      "channel_ref": "62",
+      "display_name_claim": "外%外发收货区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-01-064",
+      "channel_ref": "64",
+      "display_name_claim": "后门区右",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-01",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-001",
+      "channel_ref": "1",
+      "display_name_claim": "一楼大门口",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-002",
+      "channel_ref": "2",
+      "display_name_claim": "一楼鱼眼1",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-003",
+      "channel_ref": "3",
+      "display_name_claim": "一楼快递架",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-004",
+      "channel_ref": "4",
+      "display_name_claim": "侧门",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-005",
+      "channel_ref": "5",
+      "display_name_claim": "一楼侧门",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-006-20260815",
+      "channel_ref": "6",
+      "display_name_claim": "二楼电脑锣",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-007-20260815",
+      "channel_ref": "7",
+      "display_name_claim": "二楼小办公室",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-008",
+      "channel_ref": "8",
+      "display_name_claim": "三楼线割扫码",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-009",
+      "channel_ref": "9",
+      "display_name_claim": "三楼线割全区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-010",
+      "channel_ref": "10",
+      "display_name_claim": "二楼电脑锣T6",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-011-20260818",
+      "channel_ref": "11",
+      "display_name_claim": "尾1仓切铝板",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-012",
+      "channel_ref": "12",
+      "display_name_claim": "表面处理2",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-013-20260821",
+      "channel_ref": "13",
+      "display_name_claim": "二楼刷单架",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-014",
+      "channel_ref": "14",
+      "display_name_claim": "二楼简易钻攻",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-015",
+      "channel_ref": "15",
+      "display_name_claim": "三楼线割门口",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-016",
+      "channel_ref": "16",
+      "display_name_claim": "车床打样区右",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-017-20260821",
+      "channel_ref": "17",
+      "display_name_claim": "二楼空压机房",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-018",
+      "channel_ref": "18",
+      "display_name_claim": "外发H架",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-019",
+      "channel_ref": "19",
+      "display_name_claim": "三楼激光",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-020",
+      "channel_ref": "20",
+      "display_name_claim": "三楼后加工全区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-021",
+      "channel_ref": "21",
+      "display_name_claim": "三楼线割(办公室门口)",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-022",
+      "channel_ref": "22",
+      "display_name_claim": "二楼办公室",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-023",
+      "channel_ref": "23",
+      "display_name_claim": "尾一仓房间",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": false,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "false",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-024",
+      "channel_ref": "24",
+      "display_name_claim": "一楼双头铣",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-025",
+      "channel_ref": "25",
+      "display_name_claim": "铁皮房车床大门",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-026",
+      "channel_ref": "26",
+      "display_name_claim": "三楼办公室",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-027",
+      "channel_ref": "27",
+      "display_name_claim": "后加工车方机区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-028",
+      "channel_ref": "28",
+      "display_name_claim": "二楼楼梯口",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-029",
+      "channel_ref": "29",
+      "display_name_claim": "外发架办公区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-030",
+      "channel_ref": "30",
+      "display_name_claim": "一楼电脑锣刷单",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-031",
+      "channel_ref": "31",
+      "display_name_claim": "一楼电梯口",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-032",
+      "channel_ref": "32",
+      "display_name_claim": "尾料仓2",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": false,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "false",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-033",
+      "channel_ref": "33",
+      "display_name_claim": "二楼铣床",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-034",
+      "channel_ref": "34",
+      "display_name_claim": "铁皮房车床区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-037",
+      "channel_ref": "37",
+      "display_name_claim": "财务室",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-038",
+      "channel_ref": "38",
+      "display_name_claim": "尾1仓前门",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": false,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "false",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-039",
+      "channel_ref": "39",
+      "display_name_claim": "二楼刷单区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-040",
+      "channel_ref": "40",
+      "display_name_claim": "三楼后加工去披风",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-041",
+      "channel_ref": "41",
+      "display_name_claim": "外发E架",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-042",
+      "channel_ref": "42",
+      "display_name_claim": "尾1仓铝料房间",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": false,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "false",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-044",
+      "channel_ref": "44",
+      "display_name_claim": "尾二仓车床",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-045",
+      "channel_ref": "45",
+      "display_name_claim": "三楼闲置",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-046",
+      "channel_ref": "46",
+      "display_name_claim": "一楼车床靠里面",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-048",
+      "channel_ref": "48",
+      "display_name_claim": "线割",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-049",
+      "channel_ref": "49",
+      "display_name_claim": "一楼电脑锣过道",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-050",
+      "channel_ref": "50",
+      "display_name_claim": "尾1仓后门",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": false,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "false",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-051",
+      "channel_ref": "51",
+      "display_name_claim": "后加工工作台",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-052",
+      "channel_ref": "52",
+      "display_name_claim": "车床",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-053",
+      "channel_ref": "53",
+      "display_name_claim": "外发加过道",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-054",
+      "channel_ref": "54",
+      "display_name_claim": "三楼打包台",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-055",
+      "channel_ref": "55",
+      "display_name_claim": "后加工收料",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-057",
+      "channel_ref": "57",
+      "display_name_claim": "尾二仓",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-058",
+      "channel_ref": "58",
+      "display_name_claim": "尾二仓",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-059",
+      "channel_ref": "59",
+      "display_name_claim": "一楼料渣区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-060",
+      "channel_ref": "60",
+      "display_name_claim": "二楼电梯口",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-061",
+      "channel_ref": "61",
+      "display_name_claim": "三楼快走丝",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-062",
+      "channel_ref": "62",
+      "display_name_claim": "U钻区",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-063",
+      "channel_ref": "63",
+      "display_name_claim": "二楼铣床",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": false,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "false",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-02-064",
+      "channel_ref": "64",
+      "display_name_claim": "铁皮房后门口",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-02",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-001",
+      "channel_ref": "1",
+      "display_name_claim": "前台销售1",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-002",
+      "channel_ref": "2",
+      "display_name_claim": "四楼楼梯口",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-004",
+      "channel_ref": "4",
+      "display_name_claim": "食堂2",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-005",
+      "channel_ref": "5",
+      "display_name_claim": "四楼刀具柜",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-006",
+      "channel_ref": "6",
+      "display_name_claim": "前台销售",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-007",
+      "channel_ref": "7",
+      "display_name_claim": "前台销售",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-008",
+      "channel_ref": "8",
+      "display_name_claim": "四楼过道",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-009",
+      "channel_ref": "9",
+      "display_name_claim": "厨房",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-010-20260815",
+      "channel_ref": "10",
+      "display_name_claim": "四楼瓶装水",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-011-20260815",
+      "channel_ref": "11",
+      "display_name_claim": "一楼瓶装水",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-012",
+      "channel_ref": "12",
+      "display_name_claim": "食堂3",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-013",
+      "channel_ref": "13",
+      "display_name_claim": "磨床2",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-014",
+      "channel_ref": "14",
+      "display_name_claim": "厨房1",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-015",
+      "channel_ref": "15",
+      "display_name_claim": "磨床3",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-016",
+      "channel_ref": "16",
+      "display_name_claim": "一楼快递架TP摄像头",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-017",
+      "channel_ref": "17",
+      "display_name_claim": "Camera 01",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-018-20260825",
+      "channel_ref": "18",
+      "display_name_claim": "二楼空压机房",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-019",
+      "channel_ref": "19",
+      "display_name_claim": "磨床1",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
+      "camera_id": "cam-nvr-main-03-020",
+      "channel_ref": "20",
+      "display_name_claim": "四楼食堂",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    }
+  ],
+  "count_matches_expectation": true,
+  "discovered_channel_count": 160,
+  "errors": [],
+  "expected_channel_count": 160,
+  "observed_at": "2026-08-25T19:38:05+08:00",
+  "privacy": {
+    "contains_accounts": false,
+    "contains_network_addresses": false,
+    "contains_passwords": false
+  },
+  "recorders": [
+    {
+      "recorder_id": "nvr-caiduo",
+      "manufacturer": "Hikvision",
+      "model": "DS-8864N-R8",
+      "firmware_version": "V4.32.115",
+      "observed_channel_count": 29
+    },
+    {
+      "recorder_id": "nvr-main-01",
+      "manufacturer": "Hikvision",
+      "model": "DS-8864N-R8",
+      "firmware_version": "V4.32.115",
+      "observed_channel_count": 53
+    },
+    {
+      "recorder_id": "nvr-main-02",
+      "manufacturer": "Hikvision",
+      "model": "DS-8864N-K8",
+      "firmware_version": "V4.32.115",
+      "observed_channel_count": 59
+    },
+    {
+      "recorder_id": "nvr-main-03",
+      "manufacturer": "Hikvision",
+      "model": "DS-8632N-K8",
+      "firmware_version": "V4.74.205",
+      "observed_channel_count": 19
+    }
+  ],
+  "schema_version": "camera-inventory/v1"
+}

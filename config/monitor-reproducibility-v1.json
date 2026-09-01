@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "policy_version": "monitor-project-reproducibility-v1",
+  "timezone": "Asia/Shanghai",
+  "default_tolerances": {
+    "count": 2,
+    "percentage_point": 1.0,
+    "minutes": 5
+  },
+  "requirements": {
+    "fresh_output_directory": true,
+    "clean_git_commit_for_cross_computer_result": true,
+    "same_source_package": true,
+    "one_user_prompt_one_final_answer": true,
+    "forbid_old_result_reuse": true,
+    "forbid_ad_hoc_result_scripts": true
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "policy_version": "gate58-people-crossing-v2",
+  "timezone": "Asia/Shanghai",
+  "camera": {
+    "gate": "大井街58号大门",
+    "recorder": "nvr-main-02",
+    "channel": 1,
+    "track": 101,
+    "source_label": "一楼大门口"
+  },
+  "evidence": {
+    "minimum_pre_seconds": 20,
+    "minimum_post_seconds": 20,
+    "pending_retry_pre_seconds": 45,
+    "pending_retry_post_seconds": 45,
+    "maximum_sample_interval_seconds": 0.5,
+    "minimum_review_nodes": 2,
+    "required_counted_nodes": 3,
+    "required_nodes": [
+      "起点侧",
+      "跨门过程",
+      "终点侧"
+    ],
+    "timestamp_source": "监控画面角标"
+  },
+  "scene_geometry": {
+    "calibration_canvas": [960, 720],
+    "inside_description": "画面左侧深色车库地面及门内区域",
+    "outside_description": "画面右侧亮色门外地面、外侧通道及道路",
+    "physical_threshold_polyline": [
+      [448, 170],
+      [456, 720]
+    ],
+    "transition_half_width_pixels": 24,
+    "warning": "外侧通道紧邻门口；沿外侧通道纵向或横向经过始终属于outside，不得因靠近门口计数。"
+  },
+  "decision": {
+    "enter_sequence": ["outside", "boundary", "inside"],
+    "exit_sequence": ["inside", "boundary", "outside"],
+    "count_completed_foldback_crossings_separately": true,
+    "exclude": [
+      "outside_passer",
+      "doorway_stay",
+      "turnaround_without_crossing"
+    ],
+    "pending_when": [
+      "occluded",
+      "missing_start_side",
+      "missing_end_side",
+      "incomplete_evidence_window",
+      "unreadable_osd"
+    ]
+  },
+  "quality_gate": {
+    "maximum_pending_count_for_official_result": 2,
+    "maximum_cross_computer_enter_difference": 2,
+    "maximum_cross_computer_exit_difference": 2,
+    "maximum_cross_computer_total_difference": 2,
+    "event_time_tolerance_seconds": 3,
+    "maximum_review_rounds": 2
+  },
+  "reproducibility": {
+    "result_grain": "one_completed_person_crossing",
+    "normalized_result_fields": ["event_time", "direction"],
+    "config_fingerprint": "canonical-json-sha256-v1",
+    "require_fresh_output_directory": true,
+    "require_clean_git_commit_for_cross_machine_acceptance": true,
+    "forbid_ad_hoc_audit_output_scripts": true,
+    "minimum_archive_lag_seconds": 120
+  }
+}

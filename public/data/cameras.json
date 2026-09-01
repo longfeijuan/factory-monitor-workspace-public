@@ -1,0 +1,6725 @@
+[
+  {
+    "id": "cam-nvr-caiduo-001",
+    "name": "2号通道中段",
+    "sourceName": "2号通道中段",
+    "recorder": "nvr-caiduo",
+    "channel": "1",
+    "onlineClaim": false,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
+    "periods": [],
+    "zones": [
+      "通道/过道"
+    ],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "building_unknown",
+      "business_route_context_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "entry_exit_unknown",
+      "fixed_elements_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "historical_scene_unknown",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-002",
+    "name": "铝板切料",
+    "sourceName": "铝板切料",
+    "recorder": "nvr-caiduo",
+    "channel": "2",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "historical_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "shift_transition"
+    ],
+    "zones": [
+      "原料/材料区；锯切/切料区"
+    ],
+    "capabilities": [
+      "business_route_stage_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "caiduo-cutting-shipping-flow",
+        "title": "材多切料—通道—出货检索路由候选",
+        "sequence": 1,
+        "stage": "原料候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "current_lighting_visibility_unknown",
+      "current_scene_unknown",
+      "current_view_geometry_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-003",
+    "name": "铝排切料",
+    "sourceName": "铝排切料",
+    "recorder": "nvr-caiduo",
+    "channel": "3",
+    "onlineClaim": false,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
+    "periods": [],
+    "zones": [
+      "原料/材料区；锯切/切料区"
+    ],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "building_unknown",
+      "business_route_context_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "entry_exit_unknown",
+      "fixed_elements_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "historical_scene_unknown",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-004",
+    "name": "铝板仓门前",
+    "sourceName": "铝板仓门前",
+    "recorder": "nvr-caiduo",
+    "channel": "4",
+    "onlineClaim": false,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
+    "periods": [],
+    "zones": [
+      "仓储区；原料/材料区"
+    ],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "building_unknown",
+      "business_route_context_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "entry_exit_unknown",
+      "fixed_elements_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "historical_scene_unknown",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-005",
+    "name": "3号出货门",
+    "sourceName": "3号出货门",
+    "recorder": "nvr-caiduo",
+    "channel": "5",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "historical_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "shift_transition"
+    ],
+    "zones": [
+      "出货区"
+    ],
+    "capabilities": [
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "current_lighting_visibility_unknown",
+      "current_scene_unknown",
+      "current_view_geometry_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-006",
+    "name": "出货通道",
+    "sourceName": "出货通道",
+    "recorder": "nvr-caiduo",
+    "channel": "6",
+    "onlineClaim": false,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
+    "periods": [],
+    "zones": [
+      "出货区；通道/过道"
+    ],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "building_unknown",
+      "business_route_context_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "entry_exit_unknown",
+      "fixed_elements_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "historical_scene_unknown",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-007",
+    "name": "中间过道前2台",
+    "sourceName": "中间过道前2台",
+    "recorder": "nvr-caiduo",
+    "channel": "7",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "通道/过道"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "caiduo-cutting-shipping-flow",
+        "title": "材多切料—通道—出货检索路由候选",
+        "sequence": 5,
+        "stage": "通道前段候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-008",
+    "name": "3号通道",
+    "sourceName": "3号通道",
+    "recorder": "nvr-caiduo",
+    "channel": "8",
+    "onlineClaim": false,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
+    "periods": [],
+    "zones": [
+      "通道/过道"
+    ],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "building_unknown",
+      "business_route_context_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "entry_exit_unknown",
+      "fixed_elements_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "historical_scene_unknown",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-009",
+    "name": "3号出货门2",
+    "sourceName": "3号出货门2",
+    "recorder": "nvr-caiduo",
+    "channel": "9",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "historical_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "shift_transition"
+    ],
+    "zones": [
+      "出货区"
+    ],
+    "capabilities": [
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "current_lighting_visibility_unknown",
+      "current_scene_unknown",
+      "current_view_geometry_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-010",
+    "name": "双头铣1",
+    "sourceName": "双头铣1",
+    "recorder": "nvr-caiduo",
+    "channel": "10",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-011",
+    "name": "磨床完工侧面",
+    "sourceName": "磨床完工侧面",
+    "recorder": "nvr-caiduo",
+    "channel": "11",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "机加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "caiduo-cutting-shipping-flow",
+        "title": "材多切料—通道—出货检索路由候选",
+        "sequence": 3,
+        "stage": "机加工候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-012",
+    "name": "中间过道后3台",
+    "sourceName": "中间过道后3台",
+    "recorder": "nvr-caiduo",
+    "channel": "12",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "通道/过道"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "caiduo-cutting-shipping-flow",
+        "title": "材多切料—通道—出货检索路由候选",
+        "sequence": 6,
+        "stage": "通道中段候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-013",
+    "name": "1号通道中间",
+    "sourceName": "1号通道中间",
+    "recorder": "nvr-caiduo",
+    "channel": "13",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "通道/过道"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-014",
+    "name": "毛板批量1",
+    "sourceName": "毛板批量1",
+    "recorder": "nvr-caiduo",
+    "channel": "14",
+    "onlineClaim": false,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "building_unknown",
+      "business_route_context_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "entry_exit_unknown",
+      "fixed_elements_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "historical_scene_unknown",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-015",
+    "name": "3号通道锯床1",
+    "sourceName": "3号通道锯床1",
+    "recorder": "nvr-caiduo",
+    "channel": "15",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "historical_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "shift_transition"
+    ],
+    "zones": [
+      "通道/过道；锯切/切料区"
+    ],
+    "capabilities": [
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "current_lighting_visibility_unknown",
+      "current_scene_unknown",
+      "current_view_geometry_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-016",
+    "name": "毛板批量2",
+    "sourceName": "毛板批量2",
+    "recorder": "nvr-caiduo",
+    "channel": "16",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-017",
+    "name": "磨床2号",
+    "sourceName": "磨床2号",
+    "recorder": "nvr-caiduo",
+    "channel": "17",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "机加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-019",
+    "name": "磨床1号",
+    "sourceName": "磨床1号",
+    "recorder": "nvr-caiduo",
+    "channel": "19",
+    "onlineClaim": false,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
+    "periods": [],
+    "zones": [
+      "机加工区"
+    ],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "building_unknown",
+      "business_route_context_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "entry_exit_unknown",
+      "fixed_elements_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "historical_scene_unknown",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-021",
+    "name": "散切1号机",
+    "sourceName": "散切1号机",
+    "recorder": "nvr-caiduo",
+    "channel": "21",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "锯切/切料区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "caiduo-cutting-shipping-flow",
+        "title": "材多切料—通道—出货检索路由候选",
+        "sequence": 2,
+        "stage": "切料候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-022",
+    "name": "铝整板机",
+    "sourceName": "铝整板机",
+    "recorder": "nvr-caiduo",
+    "channel": "22",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-023",
+    "name": "散切机台",
+    "sourceName": "散切机台",
+    "recorder": "nvr-caiduo",
+    "channel": "23",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "historical_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "shift_transition"
+    ],
+    "zones": [
+      "机加工区；锯切/切料区"
+    ],
+    "capabilities": [
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "current_lighting_visibility_unknown",
+      "current_scene_unknown",
+      "current_view_geometry_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-033",
+    "name": "1号通道锯床",
+    "sourceName": "1号通道锯床",
+    "recorder": "nvr-caiduo",
+    "channel": "33",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "historical_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "shift_transition"
+    ],
+    "zones": [
+      "通道/过道；锯切/切料区"
+    ],
+    "capabilities": [
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "current_lighting_visibility_unknown",
+      "current_scene_unknown",
+      "current_view_geometry_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-034",
+    "name": "3号出货门3",
+    "sourceName": "3号出货门3",
+    "recorder": "nvr-caiduo",
+    "channel": "34",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "出货区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "caiduo-cutting-shipping-flow",
+        "title": "材多切料—通道—出货检索路由候选",
+        "sequence": 8,
+        "stage": "出货候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-035",
+    "name": "2号出货门2",
+    "sourceName": "2号出货门2",
+    "recorder": "nvr-caiduo",
+    "channel": "35",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "出货区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-037",
+    "name": "Camera 01",
+    "sourceName": "Camera 01",
+    "recorder": "nvr-caiduo",
+    "channel": "37",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "historical_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "shift_transition"
+    ],
+    "zones": [],
+    "capabilities": [
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "current_lighting_visibility_unknown",
+      "current_scene_unknown",
+      "current_view_geometry_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-038",
+    "name": "磨床刷单区",
+    "sourceName": "磨床刷单区",
+    "recorder": "nvr-caiduo",
+    "channel": "38",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "机加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "caiduo-cutting-shipping-flow",
+        "title": "材多切料—通道—出货检索路由候选",
+        "sequence": 4,
+        "stage": "刷单候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-039",
+    "name": "Camera 01",
+    "sourceName": "Camera 01",
+    "recorder": "nvr-caiduo",
+    "channel": "39",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-044",
+    "name": "高速机顶部监控",
+    "sourceName": "高速机顶部监控",
+    "recorder": "nvr-caiduo",
+    "channel": "44",
+    "onlineClaim": false,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "building_unknown",
+      "business_route_context_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "entry_exit_unknown",
+      "fixed_elements_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "historical_scene_unknown",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-caiduo-045",
+    "name": "3号通道锯床2",
+    "sourceName": "3号通道锯床2",
+    "recorder": "nvr-caiduo",
+    "channel": "45",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "historical_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "shift_transition"
+    ],
+    "zones": [
+      "通道/过道；锯切/切料区"
+    ],
+    "capabilities": [
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "current_lighting_visibility_unknown",
+      "current_scene_unknown",
+      "current_view_geometry_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-001",
+    "name": "石林合",
+    "sourceName": "石林合",
+    "recorder": "nvr-main-01",
+    "channel": "1",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-002",
+    "name": "中通快递架",
+    "sourceName": "中通快递架",
+    "recorder": "nvr-main-01",
+    "channel": "2",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "快递区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "warehouse-quality-delivery-flow",
+        "title": "仓储—品检—打包—快递交付检索路由候选",
+        "sequence": 11,
+        "stage": "快递暂存架候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-003",
+    "name": "入库3",
+    "sourceName": "入库3",
+    "recorder": "nvr-main-01",
+    "channel": "3",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "warehouse-quality-delivery-flow",
+        "title": "仓储—品检—打包—快递交付检索路由候选",
+        "sequence": 3,
+        "stage": "入库候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-004",
+    "name": "仓&氧化称数量",
+    "sourceName": "仓&氧化称数量",
+    "recorder": "nvr-main-01",
+    "channel": "4",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；品检区；表面处理区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "warehouse-quality-delivery-flow",
+        "title": "仓储—品检—打包—快递交付检索路由候选",
+        "sequence": 2,
+        "stage": "称量或称数候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-005",
+    "name": "快递打单区",
+    "sourceName": "快递打单区",
+    "recorder": "nvr-main-01",
+    "channel": "5",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "快递区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "warehouse-quality-delivery-flow",
+        "title": "仓储—品检—打包—快递交付检索路由候选",
+        "sequence": 9,
+        "stage": "快递打单候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-006",
+    "name": "仓@入库6架区",
+    "sourceName": "仓@入库6架区",
+    "recorder": "nvr-main-01",
+    "channel": "6",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "warehouse-quality-delivery-flow",
+        "title": "仓储—品检—打包—快递交付检索路由候选",
+        "sequence": 4,
+        "stage": "入库架候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-007",
+    "name": "打包台",
+    "sourceName": "打包台",
+    "recorder": "nvr-main-01",
+    "channel": "7",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "shift_transition",
+      "t0000",
+      "t0030",
+      "t0100"
+    ],
+    "zones": [
+      "打包区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "order-material-flow-v1",
+        "title": "首条业务检索路由候选",
+        "sequence": 8,
+        "stage": "packing"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-008",
+    "name": "外发P货架",
+    "sourceName": "外发P货架",
+    "recorder": "nvr-main-01",
+    "channel": "8",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；外发区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "surface-outsourcing-handoff-flow",
+        "title": "表面处理—外发架—交接通道检索路由候选",
+        "sequence": 5,
+        "stage": "外发 P 架候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-009",
+    "name": "仓&QC1桌",
+    "sourceName": "仓&QC1桌",
+    "recorder": "nvr-main-01",
+    "channel": "9",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；品检区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "warehouse-quality-delivery-flow",
+        "title": "仓储—品检—打包—快递交付检索路由候选",
+        "sequence": 5,
+        "stage": "品检一号位候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-010",
+    "name": "仓出货扫单区2",
+    "sourceName": "仓出货扫单区2",
+    "recorder": "nvr-main-01",
+    "channel": "10",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night",
+      "t0000",
+      "t0030",
+      "t0100",
+      "t0130",
+      "t0200"
+    ],
+    "zones": [
+      "仓储区；出货区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "order-material-flow-v1",
+        "title": "首条业务检索路由候选",
+        "sequence": 9,
+        "stage": "shipping"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-011",
+    "name": "品检1",
+    "sourceName": "品检1",
+    "recorder": "nvr-main-01",
+    "channel": "11",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night",
+      "t0000",
+      "t0030",
+      "t0100",
+      "t0130",
+      "t0200",
+      "t0230",
+      "t0300",
+      "t0330",
+      "t0400",
+      "t0430"
+    ],
+    "zones": [
+      "品检区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "order-material-flow-v1",
+        "title": "首条业务检索路由候选",
+        "sequence": 7,
+        "stage": "inspection"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-012",
+    "name": "仓&QC2桌",
+    "sourceName": "仓&QC2桌",
+    "recorder": "nvr-main-01",
+    "channel": "12",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；品检区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "warehouse-quality-delivery-flow",
+        "title": "仓储—品检—打包—快递交付检索路由候选",
+        "sequence": 6,
+        "stage": "品检二号位或区域候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-013",
+    "name": "仓&成品入库桌",
+    "sourceName": "仓&成品入库桌",
+    "recorder": "nvr-main-01",
+    "channel": "13",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "warehouse-quality-delivery-flow",
+        "title": "仓储—品检—打包—快递交付检索路由候选",
+        "sequence": 7,
+        "stage": "成品入库候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-014",
+    "name": "仓&入库2，3架区",
+    "sourceName": "仓&入库2，3架区",
+    "recorder": "nvr-main-01",
+    "channel": "14",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-015",
+    "name": "仓&入库1架区",
+    "sourceName": "仓&入库1架区",
+    "recorder": "nvr-main-01",
+    "channel": "15",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-016",
+    "name": "外%外发库H架区",
+    "sourceName": "外%外发库H架区",
+    "recorder": "nvr-main-01",
+    "channel": "16",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；外发区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "surface-outsourcing-handoff-flow",
+        "title": "表面处理—外发架—交接通道检索路由候选",
+        "sequence": 6,
+        "stage": "外发库 H 架候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-017",
+    "name": "仓&氧化出收货区",
+    "sourceName": "仓&氧化出收货区",
+    "recorder": "nvr-main-01",
+    "channel": "17",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；收货区；表面处理区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "warehouse-quality-delivery-flow",
+        "title": "仓储—品检—打包—快递交付检索路由候选",
+        "sequence": 1,
+        "stage": "收货候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-018",
+    "name": "QC区",
+    "sourceName": "QC区",
+    "recorder": "nvr-main-01",
+    "channel": "18",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "品检区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-019",
+    "name": "顺丰快递架",
+    "sourceName": "顺丰快递架",
+    "recorder": "nvr-main-01",
+    "channel": "19",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "快递区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-020",
+    "name": "仓&外发送货2架",
+    "sourceName": "仓&外发送货2架",
+    "recorder": "nvr-main-01",
+    "channel": "20",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；外发区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "surface-outsourcing-handoff-flow",
+        "title": "表面处理—外发架—交接通道检索路由候选",
+        "sequence": 11,
+        "stage": "外发送货暂存候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-021",
+    "name": "外%外发区高",
+    "sourceName": "外%外发区高",
+    "recorder": "nvr-main-01",
+    "channel": "21",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "外发区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-022",
+    "name": "仓&出货扫单区1",
+    "sourceName": "仓&出货扫单区1",
+    "recorder": "nvr-main-01",
+    "channel": "22",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；出货区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "warehouse-quality-delivery-flow",
+        "title": "仓储—品检—打包—快递交付检索路由候选",
+        "sequence": 10,
+        "stage": "出货扫单候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-023",
+    "name": "仓&出货扫单区3",
+    "sourceName": "仓&出货扫单区3",
+    "recorder": "nvr-main-01",
+    "channel": "23",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；出货区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "warehouse-quality-delivery-flow",
+        "title": "仓储—品检—打包—快递交付检索路由候选",
+        "sequence": 12,
+        "stage": "出货缓冲候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-025",
+    "name": "Camera 01",
+    "sourceName": "Camera 01",
+    "recorder": "nvr-main-01",
+    "channel": "25",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-026",
+    "name": "仓&客诉架过道",
+    "sourceName": "仓&客诉架过道",
+    "recorder": "nvr-main-01",
+    "channel": "26",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；通道/过道"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-028",
+    "name": "铁皮房车床",
+    "sourceName": "铁皮房车床",
+    "recorder": "nvr-main-01",
+    "channel": "28",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
+    "periods": [
+      "current_snapshot"
+    ],
+    "zones": [
+      "机加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "camera_time_mapping_unvalidated",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-029",
+    "name": "三楼楼梯口",
+    "sourceName": "三楼楼梯口",
+    "recorder": "nvr-main-01",
+    "channel": "29",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "通道/过道"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-034",
+    "name": "三楼电梯口",
+    "sourceName": "三楼电梯口",
+    "recorder": "nvr-main-01",
+    "channel": "34",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "通道/过道"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-036",
+    "name": "仓&成品大件区右",
+    "sourceName": "仓&成品大件区右",
+    "recorder": "nvr-main-01",
+    "channel": "36",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "shift_transition"
+    ],
+    "zones": [
+      "仓储区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-037",
+    "name": "外%外发库E架区",
+    "sourceName": "外%外发库E架区",
+    "recorder": "nvr-main-01",
+    "channel": "37",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；外发区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "surface-outsourcing-handoff-flow",
+        "title": "表面处理—外发架—交接通道检索路由候选",
+        "sequence": 7,
+        "stage": "外发库 E 架候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-039",
+    "name": "U钻打孔区",
+    "sourceName": "U钻打孔区",
+    "recorder": "nvr-main-01",
+    "channel": "39",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "钻攻/打孔区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-041",
+    "name": "厂房后门",
+    "sourceName": "厂房后门",
+    "recorder": "nvr-main-01",
+    "channel": "41",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "厂区入口"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-042",
+    "name": "外发材料入库架",
+    "sourceName": "外发材料入库架",
+    "recorder": "nvr-main-01",
+    "channel": "42",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night",
+      "t0000",
+      "t0030",
+      "t0100",
+      "t0130",
+      "t0200"
+    ],
+    "zones": [
+      "仓储区；原料/材料区；外发区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "order-material-flow-v1",
+        "title": "首条业务检索路由候选",
+        "sequence": 3,
+        "stage": "raw_buffer"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-043",
+    "name": "仓&打包仓门口",
+    "sourceName": "仓&打包仓门口",
+    "recorder": "nvr-main-01",
+    "channel": "43",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；厂区入口；打包区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-044",
+    "name": "仓&入库4，5架区",
+    "sourceName": "仓&入库4，5架区",
+    "recorder": "nvr-main-01",
+    "channel": "44",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-046",
+    "name": "外%外发区通道",
+    "sourceName": "外%外发区通道",
+    "recorder": "nvr-main-01",
+    "channel": "46",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night",
+      "t0000",
+      "t0030",
+      "t0100",
+      "t0130",
+      "t0200"
+    ],
+    "zones": [
+      "外发区；通道/过道"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "order-material-flow-v1",
+        "title": "首条业务检索路由候选",
+        "sequence": 4,
+        "stage": "shop_entry"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-047",
+    "name": "仓&成品区走道",
+    "sourceName": "仓&成品区走道",
+    "recorder": "nvr-main-01",
+    "channel": "47",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；通道/过道"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-048",
+    "name": "阳极分拣区",
+    "sourceName": "阳极分拣区",
+    "recorder": "nvr-main-01",
+    "channel": "48",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "表面处理区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "surface-outsourcing-handoff-flow",
+        "title": "表面处理—外发架—交接通道检索路由候选",
+        "sequence": 3,
+        "stage": "阳极分拣候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-049",
+    "name": "简易车床扫单",
+    "sourceName": "简易车床扫单",
+    "recorder": "nvr-main-01",
+    "channel": "49",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "出货区；机加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-050",
+    "name": "仓&打包台",
+    "sourceName": "仓&打包台",
+    "recorder": "nvr-main-01",
+    "channel": "50",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；打包区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "warehouse-quality-delivery-flow",
+        "title": "仓储—品检—打包—快递交付检索路由候选",
+        "sequence": 8,
+        "stage": "打包台候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-051",
+    "name": "仓&表面处理收货区",
+    "sourceName": "仓&表面处理收货区",
+    "recorder": "nvr-main-01",
+    "channel": "51",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；收货区；表面处理区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "surface-outsourcing-handoff-flow",
+        "title": "表面处理—外发架—交接通道检索路由候选",
+        "sequence": 1,
+        "stage": "表面处理收货候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-052",
+    "name": "外%外发库D区",
+    "sourceName": "外%外发库D区",
+    "recorder": "nvr-main-01",
+    "channel": "52",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "外发区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "surface-outsourcing-handoff-flow",
+        "title": "表面处理—外发架—交接通道检索路由候选",
+        "sequence": 8,
+        "stage": "外发库 D 区候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-053",
+    "name": "后加工",
+    "sourceName": "后加工",
+    "recorder": "nvr-main-01",
+    "channel": "53",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "后加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-054",
+    "name": "仓&表面处理称重",
+    "sourceName": "仓&表面处理称重",
+    "recorder": "nvr-main-01",
+    "channel": "54",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；表面处理区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "surface-outsourcing-handoff-flow",
+        "title": "表面处理—外发架—交接通道检索路由候选",
+        "sequence": 2,
+        "stage": "表面处理称重候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-055",
+    "name": "仓&打包仓过道",
+    "sourceName": "仓&打包仓过道",
+    "recorder": "nvr-main-01",
+    "channel": "55",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；打包区；通道/过道"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-056",
+    "name": "仓&成品库门口",
+    "sourceName": "仓&成品库门口",
+    "recorder": "nvr-main-01",
+    "channel": "56",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；厂区入口"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-057",
+    "name": "仓&客诉架区",
+    "sourceName": "仓&客诉架区",
+    "recorder": "nvr-main-01",
+    "channel": "57",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-058",
+    "name": "仓&成品大件区左",
+    "sourceName": "仓&成品大件区左",
+    "recorder": "nvr-main-01",
+    "channel": "58",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-059",
+    "name": "后加工称数",
+    "sourceName": "后加工称数",
+    "recorder": "nvr-main-01",
+    "channel": "59",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "后加工区；品检区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-060",
+    "name": "仓&打包仓门口外",
+    "sourceName": "仓&打包仓门口外",
+    "recorder": "nvr-main-01",
+    "channel": "60",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；厂区入口；打包区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-061",
+    "name": "仓&打包仓区",
+    "sourceName": "仓&打包仓区",
+    "recorder": "nvr-main-01",
+    "channel": "61",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；打包区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-062",
+    "name": "外%外发收货区",
+    "sourceName": "外%外发收货区",
+    "recorder": "nvr-main-01",
+    "channel": "62",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night",
+      "t0000",
+      "t0030",
+      "t0100",
+      "t0130",
+      "t0200",
+      "t0230",
+      "t0300",
+      "t0330",
+      "t0400",
+      "t0430"
+    ],
+    "zones": [
+      "外发区；收货区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "order-material-flow-v1",
+        "title": "首条业务检索路由候选",
+        "sequence": 2,
+        "stage": "receiving"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-01-064",
+    "name": "后门区右",
+    "sourceName": "后门区右",
+    "recorder": "nvr-main-01",
+    "channel": "64",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "厂区入口"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-001",
+    "name": "一楼大门口",
+    "sourceName": "一楼大门口",
+    "recorder": "nvr-main-02",
+    "channel": "1",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night",
+      "t0000",
+      "t0030",
+      "t0100",
+      "t0130",
+      "t0200",
+      "t0230",
+      "t0300",
+      "t0330",
+      "t0400",
+      "t0430",
+      "t0500",
+      "t0530",
+      "t0600",
+      "t0630",
+      "t0700",
+      "t0730",
+      "t0800",
+      "t0830",
+      "t0900",
+      "t0930",
+      "t1000",
+      "t1030",
+      "t1100",
+      "t1130",
+      "t1200",
+      "t1230",
+      "t1300",
+      "t1330",
+      "t1400",
+      "t1430",
+      "t1500",
+      "t1530",
+      "t1600",
+      "t1630",
+      "t1700",
+      "t1730",
+      "t1800",
+      "t1830",
+      "t1900",
+      "t1930",
+      "t2000",
+      "t2030",
+      "t2100",
+      "t2130",
+      "t2200",
+      "t2230",
+      "t2300",
+      "t2330"
+    ],
+    "zones": [
+      "厂区入口"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "order-material-flow-v1",
+        "title": "首条业务检索路由候选",
+        "sequence": 1,
+        "stage": "site_entry"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-002",
+    "name": "一楼鱼眼1",
+    "sourceName": "一楼鱼眼1",
+    "recorder": "nvr-main-02",
+    "channel": "2",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-003",
+    "name": "一楼快递架",
+    "sourceName": "一楼快递架",
+    "recorder": "nvr-main-02",
+    "channel": "3",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "快递区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-004",
+    "name": "侧门",
+    "sourceName": "侧门",
+    "recorder": "nvr-main-02",
+    "channel": "4",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-005",
+    "name": "一楼侧门",
+    "sourceName": "一楼侧门",
+    "recorder": "nvr-main-02",
+    "channel": "5",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "厂区入口"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-006-20260815",
+    "name": "二楼电脑锣",
+    "sourceName": "二楼电脑锣",
+    "recorder": "nvr-main-02",
+    "channel": "6",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [
+      "电脑锣区",
+      "二楼电脑锣"
+    ],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-007-20260815",
+    "name": "二楼小办公室",
+    "sourceName": "二楼小办公室",
+    "recorder": "nvr-main-02",
+    "channel": "7",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [
+      "小办公室",
+      "二楼小办公室"
+    ],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-008",
+    "name": "三楼线割扫码",
+    "sourceName": "三楼线割扫码",
+    "recorder": "nvr-main-02",
+    "channel": "8",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "线割区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-009",
+    "name": "三楼线割全区",
+    "sourceName": "三楼线割全区",
+    "recorder": "nvr-main-02",
+    "channel": "9",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night",
+      "t0000",
+      "t0030",
+      "t0100",
+      "t0130",
+      "t0200",
+      "t0230",
+      "t0300",
+      "t0330",
+      "t0400",
+      "t0430",
+      "t0500",
+      "t0530",
+      "t0600",
+      "t0630",
+      "t0700",
+      "t0730",
+      "t0800",
+      "t0830",
+      "t0900",
+      "t0930",
+      "t1000",
+      "t1030",
+      "t1100",
+      "t1130",
+      "t1200",
+      "t1230",
+      "t1300",
+      "t1330",
+      "t1400",
+      "t1430",
+      "t1500",
+      "t1530",
+      "t1600",
+      "t1630",
+      "t1700",
+      "t1730",
+      "t1800",
+      "t1830",
+      "t1900",
+      "t1930",
+      "t2000",
+      "t2030",
+      "t2100",
+      "t2130",
+      "t2200",
+      "t2230",
+      "t2300",
+      "t2330"
+    ],
+    "zones": [
+      "线割区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "order-material-flow-v1",
+        "title": "首条业务检索路由候选",
+        "sequence": 5,
+        "stage": "machining"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-010",
+    "name": "二楼电脑锣T6",
+    "sourceName": "二楼电脑锣T6",
+    "recorder": "nvr-main-02",
+    "channel": "10",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "机加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "machining-postprocess-flow",
+        "title": "机加工工序状态检索路由候选",
+        "sequence": 7,
+        "stage": "电脑锣 T6 区候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-011-20260818",
+    "name": "尾1仓切铝板",
+    "sourceName": "尾1仓切铝板",
+    "recorder": "nvr-main-02",
+    "channel": "11",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-012",
+    "name": "表面处理2",
+    "sourceName": "表面处理2",
+    "recorder": "nvr-main-02",
+    "channel": "12",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "表面处理区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "surface-outsourcing-handoff-flow",
+        "title": "表面处理—外发架—交接通道检索路由候选",
+        "sequence": 4,
+        "stage": "表面处理工位候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-013-20260821",
+    "name": "二楼刷单架",
+    "sourceName": "二楼刷单架",
+    "recorder": "nvr-main-02",
+    "channel": "13",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-014",
+    "name": "二楼简易钻攻",
+    "sourceName": "二楼简易钻攻",
+    "recorder": "nvr-main-02",
+    "channel": "14",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "钻攻/打孔区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "machining-postprocess-flow",
+        "title": "机加工工序状态检索路由候选",
+        "sequence": 9,
+        "stage": "钻攻设备区候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-015",
+    "name": "三楼线割门口",
+    "sourceName": "三楼线割门口",
+    "recorder": "nvr-main-02",
+    "channel": "15",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "厂区入口；线割区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-016",
+    "name": "车床打样区右",
+    "sourceName": "车床打样区右",
+    "recorder": "nvr-main-02",
+    "channel": "16",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "机加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "machining-postprocess-flow",
+        "title": "机加工工序状态检索路由候选",
+        "sequence": 3,
+        "stage": "车床打样区候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-017-20260821",
+    "name": "二楼空压机房",
+    "sourceName": "二楼空压机房",
+    "recorder": "nvr-main-02",
+    "channel": "17",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-018",
+    "name": "外发H架",
+    "sourceName": "外发H架",
+    "recorder": "nvr-main-02",
+    "channel": "18",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "外发区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "surface-outsourcing-handoff-flow",
+        "title": "表面处理—外发架—交接通道检索路由候选",
+        "sequence": 9,
+        "stage": "另一来源 H 架候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-019",
+    "name": "三楼激光",
+    "sourceName": "三楼激光",
+    "recorder": "nvr-main-02",
+    "channel": "19",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "激光区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "machining-postprocess-flow",
+        "title": "机加工工序状态检索路由候选",
+        "sequence": 11,
+        "stage": "激光设备间候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-020",
+    "name": "三楼后加工全区",
+    "sourceName": "三楼后加工全区",
+    "recorder": "nvr-main-02",
+    "channel": "20",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "historical_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "daytime"
+    ],
+    "zones": [
+      "后加工区"
+    ],
+    "capabilities": [
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "current_lighting_visibility_unknown",
+      "current_scene_unknown",
+      "current_view_geometry_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-021",
+    "name": "三楼线割(办公室门口)",
+    "sourceName": "三楼线割(办公室门口)",
+    "recorder": "nvr-main-02",
+    "channel": "21",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "办公区；厂区入口；线割区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-022",
+    "name": "二楼办公室",
+    "sourceName": "二楼办公室",
+    "recorder": "nvr-main-02",
+    "channel": "22",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "办公区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-023",
+    "name": "尾一仓房间",
+    "sourceName": "尾一仓房间",
+    "recorder": "nvr-main-02",
+    "channel": "23",
+    "onlineClaim": false,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
+    "periods": [],
+    "zones": [
+      "仓储区"
+    ],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "building_unknown",
+      "business_route_context_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "entry_exit_unknown",
+      "fixed_elements_unknown",
+      "frame_clock_unverified",
+      "historical_scene_unknown",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-024",
+    "name": "一楼双头铣",
+    "sourceName": "一楼双头铣",
+    "recorder": "nvr-main-02",
+    "channel": "24",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "machining-postprocess-flow",
+        "title": "机加工工序状态检索路由候选",
+        "sequence": 2,
+        "stage": "双头铣设备区候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-025",
+    "name": "铁皮房车床大门",
+    "sourceName": "铁皮房车床大门",
+    "recorder": "nvr-main-02",
+    "channel": "25",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "厂区入口；机加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-026",
+    "name": "三楼办公室",
+    "sourceName": "三楼办公室",
+    "recorder": "nvr-main-02",
+    "channel": "26",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "shift_transition"
+    ],
+    "zones": [
+      "办公区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-027",
+    "name": "后加工车方机区",
+    "sourceName": "后加工车方机区",
+    "recorder": "nvr-main-02",
+    "channel": "27",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "后加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-028",
+    "name": "二楼楼梯口",
+    "sourceName": "二楼楼梯口",
+    "recorder": "nvr-main-02",
+    "channel": "28",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "通道/过道"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-029",
+    "name": "外发架办公区",
+    "sourceName": "外发架办公区",
+    "recorder": "nvr-main-02",
+    "channel": "29",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "办公区；外发区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-030",
+    "name": "一楼电脑锣刷单",
+    "sourceName": "一楼电脑锣刷单",
+    "recorder": "nvr-main-02",
+    "channel": "30",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "机加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "machining-postprocess-flow",
+        "title": "机加工工序状态检索路由候选",
+        "sequence": 1,
+        "stage": "工单或刷单入口候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-031",
+    "name": "一楼电梯口",
+    "sourceName": "一楼电梯口",
+    "recorder": "nvr-main-02",
+    "channel": "31",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "通道/过道"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-032",
+    "name": "尾料仓2",
+    "sourceName": "尾料仓2",
+    "recorder": "nvr-main-02",
+    "channel": "32",
+    "onlineClaim": false,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
+    "periods": [],
+    "zones": [
+      "仓储区；原料/材料区"
+    ],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "building_unknown",
+      "business_route_context_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "entry_exit_unknown",
+      "fixed_elements_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "historical_scene_unknown",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-033",
+    "name": "二楼铣床",
+    "sourceName": "二楼铣床",
+    "recorder": "nvr-main-02",
+    "channel": "33",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "机加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "machining-postprocess-flow",
+        "title": "机加工工序状态检索路由候选",
+        "sequence": 8,
+        "stage": "铣床区候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-034",
+    "name": "铁皮房车床区",
+    "sourceName": "铁皮房车床区",
+    "recorder": "nvr-main-02",
+    "channel": "34",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "机加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "machining-postprocess-flow",
+        "title": "机加工工序状态检索路由候选",
+        "sequence": 5,
+        "stage": "铁皮房车床区候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-037",
+    "name": "财务室",
+    "sourceName": "财务室",
+    "recorder": "nvr-main-02",
+    "channel": "37",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "办公区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-038",
+    "name": "尾1仓前门",
+    "sourceName": "尾1仓前门",
+    "recorder": "nvr-main-02",
+    "channel": "38",
+    "onlineClaim": false,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
+    "periods": [],
+    "zones": [
+      "仓储区"
+    ],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "building_unknown",
+      "business_route_context_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "entry_exit_unknown",
+      "fixed_elements_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "historical_scene_unknown",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-039",
+    "name": "二楼刷单区",
+    "sourceName": "二楼刷单区",
+    "recorder": "nvr-main-02",
+    "channel": "39",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-040",
+    "name": "三楼后加工去披风",
+    "sourceName": "三楼后加工去披风",
+    "recorder": "nvr-main-02",
+    "channel": "40",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "后加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "machining-postprocess-flow",
+        "title": "机加工工序状态检索路由候选",
+        "sequence": 12,
+        "stage": "后加工或去披锋候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-041",
+    "name": "外发E架",
+    "sourceName": "外发E架",
+    "recorder": "nvr-main-02",
+    "channel": "41",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "外发区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "surface-outsourcing-handoff-flow",
+        "title": "表面处理—外发架—交接通道检索路由候选",
+        "sequence": 10,
+        "stage": "另一来源 E 架候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-042",
+    "name": "尾1仓铝料房间",
+    "sourceName": "尾1仓铝料房间",
+    "recorder": "nvr-main-02",
+    "channel": "42",
+    "onlineClaim": false,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
+    "periods": [],
+    "zones": [
+      "仓储区"
+    ],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "building_unknown",
+      "business_route_context_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "entry_exit_unknown",
+      "fixed_elements_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "historical_scene_unknown",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-044",
+    "name": "尾二仓车床",
+    "sourceName": "尾二仓车床",
+    "recorder": "nvr-main-02",
+    "channel": "44",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区；机加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-045",
+    "name": "三楼闲置",
+    "sourceName": "三楼闲置",
+    "recorder": "nvr-main-02",
+    "channel": "45",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-046",
+    "name": "一楼车床靠里面",
+    "sourceName": "一楼车床靠里面",
+    "recorder": "nvr-main-02",
+    "channel": "46",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "机加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "machining-postprocess-flow",
+        "title": "机加工工序状态检索路由候选",
+        "sequence": 4,
+        "stage": "内侧车床区候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-048",
+    "name": "线割",
+    "sourceName": "线割",
+    "recorder": "nvr-main-02",
+    "channel": "48",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-049",
+    "name": "一楼电脑锣过道",
+    "sourceName": "一楼电脑锣过道",
+    "recorder": "nvr-main-02",
+    "channel": "49",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "机加工区；通道/过道"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "machining-postprocess-flow",
+        "title": "机加工工序状态检索路由候选",
+        "sequence": 6,
+        "stage": "电脑锣通道候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-050",
+    "name": "尾1仓后门",
+    "sourceName": "尾1仓后门",
+    "recorder": "nvr-main-02",
+    "channel": "50",
+    "onlineClaim": false,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
+    "periods": [],
+    "zones": [
+      "仓储区；厂区入口"
+    ],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "building_unknown",
+      "business_route_context_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "entry_exit_unknown",
+      "fixed_elements_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "historical_scene_unknown",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-051",
+    "name": "后加工工作台",
+    "sourceName": "后加工工作台",
+    "recorder": "nvr-main-02",
+    "channel": "51",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "shift_transition"
+    ],
+    "zones": [
+      "后加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-052",
+    "name": "车床",
+    "sourceName": "车床",
+    "recorder": "nvr-main-02",
+    "channel": "52",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-053",
+    "name": "外发加过道",
+    "sourceName": "外发加过道",
+    "recorder": "nvr-main-02",
+    "channel": "53",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "外发区；通道/过道"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "surface-outsourcing-handoff-flow",
+        "title": "表面处理—外发架—交接通道检索路由候选",
+        "sequence": 12,
+        "stage": "外发交接通道候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-054",
+    "name": "三楼打包台",
+    "sourceName": "三楼打包台",
+    "recorder": "nvr-main-02",
+    "channel": "54",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-055",
+    "name": "后加工收料",
+    "sourceName": "后加工收料",
+    "recorder": "nvr-main-02",
+    "channel": "55",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night",
+      "t0000",
+      "t0030",
+      "t0100",
+      "t0130",
+      "t0200",
+      "t0230",
+      "t0300",
+      "t0330",
+      "t0400",
+      "t0430",
+      "t0500",
+      "t0530",
+      "t0600",
+      "t0630",
+      "t0700",
+      "t0730",
+      "t0800",
+      "t0830",
+      "t0900",
+      "t0930",
+      "t1000",
+      "t1030",
+      "t1100",
+      "t1130",
+      "t1200",
+      "t1230",
+      "t1300",
+      "t1330",
+      "t1400",
+      "t1430",
+      "t1500",
+      "t1530",
+      "t1600",
+      "t1630",
+      "t1700",
+      "t1730",
+      "t1800",
+      "t1830",
+      "t1900",
+      "t1930",
+      "t2000",
+      "t2030",
+      "t2100",
+      "t2130",
+      "t2200",
+      "t2230",
+      "t2300",
+      "t2330"
+    ],
+    "zones": [
+      "后加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "order-material-flow-v1",
+        "title": "首条业务检索路由候选",
+        "sequence": 6,
+        "stage": "handoff"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-057",
+    "name": "尾二仓",
+    "sourceName": "尾二仓",
+    "recorder": "nvr-main-02",
+    "channel": "57",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "shift_transition"
+    ],
+    "zones": [
+      "仓储区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-058",
+    "name": "尾二仓",
+    "sourceName": "尾二仓",
+    "recorder": "nvr-main-02",
+    "channel": "58",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "仓储区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-059",
+    "name": "一楼料渣区",
+    "sourceName": "一楼料渣区",
+    "recorder": "nvr-main-02",
+    "channel": "59",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "料渣区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-060",
+    "name": "二楼电梯口",
+    "sourceName": "二楼电梯口",
+    "recorder": "nvr-main-02",
+    "channel": "60",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
+    "periods": [
+      "current_snapshot"
+    ],
+    "zones": [
+      "通道/过道"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "camera_time_mapping_unvalidated",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-061",
+    "name": "三楼快走丝",
+    "sourceName": "三楼快走丝",
+    "recorder": "nvr-main-02",
+    "channel": "61",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-062",
+    "name": "U钻区",
+    "sourceName": "U钻区",
+    "recorder": "nvr-main-02",
+    "channel": "62",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "钻攻/打孔区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "business_route_stage_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [
+      {
+        "id": "machining-postprocess-flow",
+        "title": "机加工工序状态检索路由候选",
+        "sequence": 10,
+        "stage": "U 钻或打孔区候选"
+      }
+    ],
+    "unknowns": [
+      "building_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-063",
+    "name": "二楼铣床",
+    "sourceName": "二楼铣床",
+    "recorder": "nvr-main-02",
+    "channel": "63",
+    "onlineClaim": false,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-02-064",
+    "name": "铁皮房后门口",
+    "sourceName": "铁皮房后门口",
+    "recorder": "nvr-main-02",
+    "channel": "64",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "厂区入口"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-001",
+    "name": "前台销售1",
+    "sourceName": "前台销售1",
+    "recorder": "nvr-main-03",
+    "channel": "1",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "办公区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-002",
+    "name": "四楼楼梯口",
+    "sourceName": "四楼楼梯口",
+    "recorder": "nvr-main-03",
+    "channel": "2",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "通道/过道"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-004",
+    "name": "食堂2",
+    "sourceName": "食堂2",
+    "recorder": "nvr-main-03",
+    "channel": "4",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "食堂/厨房"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-005",
+    "name": "四楼刀具柜",
+    "sourceName": "四楼刀具柜",
+    "recorder": "nvr-main-03",
+    "channel": "5",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "刀具区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-006",
+    "name": "前台销售",
+    "sourceName": "前台销售",
+    "recorder": "nvr-main-03",
+    "channel": "6",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "办公区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-007",
+    "name": "前台销售",
+    "sourceName": "前台销售",
+    "recorder": "nvr-main-03",
+    "channel": "7",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
+    "periods": [],
+    "zones": [
+      "办公区"
+    ],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "building_unknown",
+      "business_route_context_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "entry_exit_unknown",
+      "fixed_elements_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "historical_scene_unknown",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-008",
+    "name": "四楼过道",
+    "sourceName": "四楼过道",
+    "recorder": "nvr-main-03",
+    "channel": "8",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "通道/过道"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-009",
+    "name": "厨房",
+    "sourceName": "厨房",
+    "recorder": "nvr-main-03",
+    "channel": "9",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "食堂/厨房"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-010-20260815",
+    "name": "四楼瓶装水",
+    "sourceName": "四楼瓶装水",
+    "recorder": "nvr-main-03",
+    "channel": "10",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-011-20260815",
+    "name": "一楼瓶装水",
+    "sourceName": "一楼瓶装水",
+    "recorder": "nvr-main-03",
+    "channel": "11",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-012",
+    "name": "食堂3",
+    "sourceName": "食堂3",
+    "recorder": "nvr-main-03",
+    "channel": "12",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "食堂/厨房"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-013",
+    "name": "磨床2",
+    "sourceName": "磨床2",
+    "recorder": "nvr-main-03",
+    "channel": "13",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "机加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-014",
+    "name": "厨房1",
+    "sourceName": "厨房1",
+    "recorder": "nvr-main-03",
+    "channel": "14",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "食堂/厨房"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-015",
+    "name": "磨床3",
+    "sourceName": "磨床3",
+    "recorder": "nvr-main-03",
+    "channel": "15",
+    "onlineClaim": true,
+    "evidenceLevel": "E2_direct_observation",
+    "evidenceScope": "current_frame",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "validated_by_recorder_canary_and_bound_history",
+    "periods": [
+      "current_snapshot",
+      "daytime",
+      "shift_transition",
+      "night"
+    ],
+    "zones": [
+      "机加工区"
+    ],
+    "capabilities": [
+      "blind_spot_candidate",
+      "generic_model_object_presence_candidate",
+      "lighting_visibility_candidate",
+      "scene_layout_candidate",
+      "source_name_routing_candidate",
+      "temporal_change_candidate_lookup",
+      "temporal_scene_lookup"
+    ],
+    "routes": [],
+    "unknowns": [
+      "building_unknown",
+      "business_route_context_unknown",
+      "entry_exit_unknown",
+      "floor_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "primary_visible_zones_unconfirmed",
+      "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-016",
+    "name": "一楼快递架TP摄像头",
+    "sourceName": "一楼快递架TP摄像头",
+    "recorder": "nvr-main-03",
+    "channel": "16",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-017",
+    "name": "Camera 01",
+    "sourceName": "Camera 01",
+    "recorder": "nvr-main-03",
+    "channel": "17",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-018-20260825",
+    "name": "二楼空压机房",
+    "sourceName": "二楼空压机房",
+    "recorder": "nvr-main-03",
+    "channel": "18",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-019",
+    "name": "磨床1",
+    "sourceName": "磨床1",
+    "recorder": "nvr-main-03",
+    "channel": "19",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-020",
+    "name": "四楼食堂",
+    "sourceName": "四楼食堂",
+    "recorder": "nvr-main-03",
+    "channel": "20",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  }
+]

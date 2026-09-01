@@ -1,0 +1,64 @@
+{
+  "schema_version": 2,
+  "policy_version": "cnc-floor1-green-blink-v2.1",
+  "timezone": "Asia/Shanghai",
+  "camera": {
+    "recorder": "nvr-main-02",
+    "channel": 49,
+    "track": 4901,
+    "source_label": "一楼电脑锣过道"
+  },
+  "calibration": {
+    "calibrated_at": "2026-08-28",
+    "valid_from_local": "2026-08-28T00:00:00",
+    "reference_size": [
+      1280,
+      720
+    ],
+    "change_reason": "通道49由旧2560x1440鱼眼布局切换为当前1280x720过道布局",
+    "machine_rois": {
+      "1": [515, 420, 555, 455],
+      "2": [570, 215, 603, 250],
+      "3": [955, 65, 1008, 130],
+      "4": [1145, 195, 1220, 305],
+      "5": [800, 235, 850, 300],
+      "6": [540, 25, 580, 75]
+    }
+  },
+  "sampling": {
+    "step_minutes": 5,
+    "window_seconds": 10.0,
+    "frame_step_seconds": 0.5,
+    "minimum_span_seconds": 9.0,
+    "minimum_green_frames": 2,
+    "strong_single_frame_green_pixels": 12,
+    "ambiguous_review_window_seconds": 20.0,
+    "ambiguous_review_minimum_span_seconds": 19.0,
+    "event_shift_seconds": 65.0,
+    "green_pixel_threshold": 8,
+    "dominance_threshold": 15.0,
+    "parallel_workers": 4,
+    "retry_workers": 1
+  },
+  "scheduled_work_periods": {
+    "day": [
+      ["08:00", "12:00"],
+      ["13:30", "17:30"],
+      ["18:00", "20:00"]
+    ],
+    "night": [
+      ["20:00", "24:00"],
+      ["02:00", "08:00"]
+    ]
+  },
+  "quality_gate": {
+    "minimum_known_coverage_percent": 95.0,
+    "maximum_cross_computer_rate_difference_pp": 1.0,
+    "require_all_six_machines": true,
+    "fail_closed_on_decode_error": true,
+    "minimum_machines_with_running_sample_for_queries_at_least_minutes": {
+      "query_minutes": 60,
+      "machines": 1
+    }
+  }
+}
