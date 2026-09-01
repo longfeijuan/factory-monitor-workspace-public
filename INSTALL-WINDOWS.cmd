@@ -61,8 +61,10 @@ if errorlevel 1 (
 echo [3/4] Installing dependencies, running quality gates, and preparing local NVR access...
 set "INSTALL_ARGS="
 if /I "%FACTORY_MONITOR_SKIP_OPEN%"=="1" set "INSTALL_ARGS=!INSTALL_ARGS! -NoCodexLaunch"
-if /I "%FACTORY_MONITOR_SKIP_CREDENTIAL_SETUP%"=="1" set "INSTALL_ARGS=!INSTALL_ARGS! -SkipCredentialSetup"
-if /I "%FACTORY_MONITOR_NONINTERACTIVE%"=="1" set "INSTALL_ARGS=!INSTALL_ARGS! -SkipCredentialSetup"
+set "SKIP_CREDENTIAL_SETUP="
+if /I "%FACTORY_MONITOR_SKIP_CREDENTIAL_SETUP%"=="1" set "SKIP_CREDENTIAL_SETUP=1"
+if /I "%FACTORY_MONITOR_NONINTERACTIVE%"=="1" set "SKIP_CREDENTIAL_SETUP=1"
+if defined SKIP_CREDENTIAL_SETUP set "INSTALL_ARGS=!INSTALL_ARGS! -SkipCredentialSetup"
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%PROJECT_DIR%\scripts\install-windows.ps1" %INSTALL_ARGS%
 if errorlevel 1 (
   echo [FAILED] Installation or quality gates failed. Send the full console output to the project maintainer.
