@@ -2,6 +2,7 @@
 param(
     [switch]$SkipSystemDependencies,
     [switch]$SkipValidation,
+    [switch]$SkipCredentialSetup,
     [switch]$NoCodexLaunch
 )
 
@@ -129,6 +130,15 @@ function Invoke-BootstrapPython {
     Invoke-Native -FilePath $script:bootstrapPython -Arguments @($script:bootstrapPythonPrefix + $Arguments) -Description $Description
 }
 
+function Test-NvrCredentialStatus {
+    $statusOutput = & $venvPython 'connector/gate_nvr_service.py' '--credential-status'
+    $statusExitCode = $LASTEXITCODE
+    if ($statusOutput) {
+        $statusOutput | ForEach-Object { Write-Host $_ }
+    }
+    return $statusExitCode -eq 0
+}
+
 try {
     if ([Environment]::OSVersion.Platform -ne [PlatformID]::Win32NT) {
         throw 'This installer only supports Windows.'
@@ -192,12 +202,37 @@ try {
         }
     }
 
-    $dws = Get-AvailableCommand -Names @('dws.exe', 'dws')
-    if ($dws) {
-        Write-Host 'DWS_STATUS=INSTALLED; live video still requires the user login, company network, and read-only permission.' -ForegroundColor Yellow
+    $credentialsReady = Test-NvrCredentialStatus
+    $nonInteractive = $env:FACTORY_MONITOR_NONINTERACTIVE -eq '1'
+    $skipCredentialWizard = $SkipCredentialSetup -or $nonInteractive -or $env:FACTORY_MONITOR_SKIP_CREDENTIAL_SETUP -eq '1'
+    if (-not $credentialsReady -and -not $skipCredentialWizard) {
+        Write-Host ''
+        Write-Host 'Live NVR setup: ordinary users do not need access to the Huang Wei work group.' -ForegroundColor Cyan
+        Write-Host 'Obtain the four read-only NVR connection items through a company-approved secure channel.' -ForegroundColor Yellow
+        Write-Host 'Passwords will be entered invisibly and saved only in this Windows user Credential Manager.' -ForegroundColor Yellow
+        $answer = Read-Host 'Set up the four read-only NVR connections now? [Y/n]'
+        if ([string]::IsNullOrWhiteSpace($answer) -or $answer -match '^(?i:y|yes)$') {
+            Invoke-Native -FilePath $venvPython -Arguments @('connector/gate_nvr_service.py', '--setup-credentials') -Description 'Secure local NVR credential setup'
+            $credentialsReady = Test-NvrCredentialStatus
+            if (-not $credentialsReady) {
+                throw 'The four NVR connection items were not stored completely.'
+            }
+        }
+    }
+
+    if ($credentialsReady) {
+        Write-Host 'FACTORY_MONITOR_LIVE_CREDENTIALS=READY; group access is not required.' -ForegroundColor Green
     }
     else {
-        Write-Host 'DWS_STATUS=AUTH_REQUIRED; offline setup is ready, but live video requires an authorized local DWS login.' -ForegroundColor Yellow
+        Write-Host 'FACTORY_MONITOR_LIVE_CREDENTIALS=AUTH_REQUIRED; run SETUP-NVR-CREDENTIALS.cmd after receiving the approved read-only connection items.' -ForegroundColor Yellow
+    }
+
+    $dws = Get-AvailableCommand -Names @('dws.exe', 'dws')
+    if ($dws) {
+        Write-Host 'DWS_STATUS=OPTIONAL_INSTALLED; only data maintainers need it for source-group synchronization.' -ForegroundColor Yellow
+    }
+    else {
+        Write-Host 'DWS_STATUS=OPTIONAL_NOT_INSTALLED; ordinary live queries use locally stored NVR credentials.' -ForegroundColor Yellow
     }
 
     Write-Host 'FACTORY_MONITOR_INSTALL_STATUS=PASS' -ForegroundColor Green

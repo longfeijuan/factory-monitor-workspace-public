@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 """Loopback-only, read-only Hikvision NVR connector.
 
-On macOS, credentials are stored in Keychain. On other systems they can be
-imported from an authorized DingTalk session and kept in memory for that run.
-Credentials are never printed or written to project files.
+On Windows, credentials are stored in Windows Credential Manager. On macOS,
+they are stored in Keychain. An authorized data maintainer can still import
+them from DingTalk, but ordinary users can enter them locally without access
+to the source group. Credentials are never printed or written to project files.
 """
 
 from __future__ import annotations
 
 import argparse
+import ctypes
+import getpass
 import hashlib
+import ipaddress
 import json
 import os
 import platform
@@ -25,6 +29,7 @@ from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
+from ctypes import wintypes
 from urllib.error import HTTPError, URLError
 from urllib.request import (
     HTTPDigestAuthHandler,
@@ -38,10 +43,38 @@ from urllib.request import (
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 CAMERA_FILE = PROJECT_ROOT / "public" / "data" / "cameras.json"
 KEYCHAIN_PREFIX = "com.codex.gate-person-audit"
+WINDOWS_CREDENTIAL_PREFIX = "FactoryMonitor/NVR"
 DINGTALK_GROUP = "黄伟工作群"
 DINGTALK_START = "2026-07-17T00:00:00+08:00"
 DINGTALK_END = "2026-08-03T00:00:00+08:00"
 RECORDER_ORDER = ("nvr-main-01", "nvr-main-02", "nvr-main-03", "nvr-caiduo")
+RECORDER_LABELS = {
+    "nvr-main-01": "主厂区录像机1",
+    "nvr-main-02": "主厂区录像机2",
+    "nvr-main-03": "主厂区录像机3",
+    "nvr-caiduo": "材多录像机",
+}
+
+CRED_TYPE_GENERIC = 1
+CRED_PERSIST_LOCAL_MACHINE = 2
+ERROR_NOT_FOUND = 1168
+
+
+class _WindowsCredential(ctypes.Structure):
+    _fields_ = [
+        ("Flags", wintypes.DWORD),
+        ("Type", wintypes.DWORD),
+        ("TargetName", wintypes.LPWSTR),
+        ("Comment", wintypes.LPWSTR),
+        ("LastWritten", wintypes.FILETIME),
+        ("CredentialBlobSize", wintypes.DWORD),
+        ("CredentialBlob", ctypes.POINTER(ctypes.c_ubyte)),
+        ("Persist", wintypes.DWORD),
+        ("AttributeCount", wintypes.DWORD),
+        ("Attributes", ctypes.c_void_p),
+        ("TargetAlias", wintypes.LPWSTR),
+        ("UserName", wintypes.LPWSTR),
+    ]
 
 
 @dataclass(frozen=True)
@@ -53,6 +86,160 @@ class Credential:
 
 class ConnectorError(RuntimeError):
     pass
+
+
+def _validate_credential(recorder: str, credential: Credential) -> None:
+    if recorder not in RECORDER_ORDER:
+        raise ConnectorError("NVR连接项名称无效。")
+    host = credential.host.strip()
+    username = credential.username.strip()
+    password = credential.password
+    if not host or not username or not password:
+        raise ConnectorError(f"{recorder}的地址、只读用户名或密码为空。")
+    if any(character.isspace() for character in host) or "://" in host or "/" in host:
+        raise ConnectorError(f"{recorder}的地址格式无效；只填写IP地址或主机名。")
+    try:
+        address = ipaddress.ip_address(host)
+    except ValueError:
+        if not re.fullmatch(r"[A-Za-z0-9](?:[A-Za-z0-9.-]{0,251}[A-Za-z0-9])?", host):
+            raise ConnectorError(f"{recorder}的地址格式无效。") from None
+    else:
+        if address.version != 4 or not address.is_private:
+            raise ConnectorError(f"{recorder}必须填写公司内网或VPN可访问的私有IPv4地址。")
+    if "\x00" in username or "\x00" in password:
+        raise ConnectorError(f"{recorder}的用户名或密码包含无效字符。")
+
+
+def _validate_credential_set(credentials: dict[str, Credential]) -> None:
+    if set(credentials) != set(RECORDER_ORDER):
+        raise ConnectorError("必须完整提供4台NVR连接项。")
+    for recorder in RECORDER_ORDER:
+        _validate_credential(recorder, credentials[recorder])
+
+
+def windows_credential_manager_available() -> bool:
+    return platform.system() == "Windows"
+
+
+def _windows_credential_api():
+    if not windows_credential_manager_available():
+        raise ConnectorError("当前系统没有可用的Windows凭据管理器。")
+    api = ctypes.WinDLL("Advapi32.dll", use_last_error=True)
+    api.CredReadW.argtypes = [
+        wintypes.LPCWSTR,
+        wintypes.DWORD,
+        wintypes.DWORD,
+        ctypes.POINTER(ctypes.POINTER(_WindowsCredential)),
+    ]
+    api.CredReadW.restype = wintypes.BOOL
+    api.CredWriteW.argtypes = [ctypes.POINTER(_WindowsCredential), wintypes.DWORD]
+    api.CredWriteW.restype = wintypes.BOOL
+    api.CredFree.argtypes = [ctypes.c_void_p]
+    api.CredFree.restype = None
+    return api
+
+
+def _windows_credential_target(recorder: str) -> str:
+    return f"{WINDOWS_CREDENTIAL_PREFIX}/{recorder}"
+
+
+def _read_windows_secret(target: str) -> str | None:
+    api = _windows_credential_api()
+    pointer = ctypes.POINTER(_WindowsCredential)()
+    if not api.CredReadW(target, CRED_TYPE_GENERIC, 0, ctypes.byref(pointer)):
+        error_code = ctypes.get_last_error()
+        if error_code == ERROR_NOT_FOUND:
+            return None
+        raise ConnectorError(f"Windows凭据管理器读取失败（错误码{error_code}）。")
+    try:
+        credential = pointer.contents
+        raw = ctypes.string_at(credential.CredentialBlob, credential.CredentialBlobSize)
+        return raw.decode("utf-16-le")
+    except (UnicodeDecodeError, ValueError) as error:
+        raise ConnectorError("Windows凭据管理器中的NVR连接项格式无效。") from error
+    finally:
+        api.CredFree(pointer)
+
+
+def _write_windows_secret(target: str, secret: str) -> None:
+    api = _windows_credential_api()
+    raw = secret.encode("utf-16-le")
+    blob = ctypes.create_string_buffer(raw)
+    credential = _WindowsCredential()
+    credential.Type = CRED_TYPE_GENERIC
+    credential.TargetName = target
+    credential.Comment = "Factory Monitor read-only NVR connection"
+    credential.CredentialBlobSize = len(raw)
+    credential.CredentialBlob = ctypes.cast(blob, ctypes.POINTER(ctypes.c_ubyte))
+    credential.Persist = CRED_PERSIST_LOCAL_MACHINE
+    credential.UserName = "connection"
+    if not api.CredWriteW(ctypes.byref(credential), 0):
+        error_code = ctypes.get_last_error()
+        raise ConnectorError(f"Windows凭据管理器写入失败（错误码{error_code}）。")
+
+
+def load_windows_credentials() -> dict[str, Credential] | None:
+    if not windows_credential_manager_available():
+        return None
+    result: dict[str, Credential] = {}
+    for recorder in RECORDER_ORDER:
+        secret = _read_windows_secret(_windows_credential_target(recorder))
+        if secret is None:
+            return None
+        try:
+            payload = json.loads(secret)
+            result[recorder] = Credential(
+                host=str(payload["host"]),
+                username=str(payload["username"]),
+                password=str(payload["password"]),
+            )
+        except (KeyError, TypeError, json.JSONDecodeError) as error:
+            raise ConnectorError("Windows凭据管理器中的NVR连接项格式无效。") from error
+    _validate_credential_set(result)
+    return result
+
+
+def save_windows_credentials(credentials: dict[str, Credential]) -> None:
+    if not windows_credential_manager_available():
+        raise ConnectorError("当前系统没有可用的Windows凭据管理器。")
+    _validate_credential_set(credentials)
+    for recorder in RECORDER_ORDER:
+        credential = credentials[recorder]
+        secret = json.dumps(
+            {"host": credential.host, "username": credential.username, "password": credential.password},
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
+        _write_windows_secret(_windows_credential_target(recorder), secret)
+
+
+def setup_windows_credentials_interactive() -> dict[str, Credential]:
+    if not windows_credential_manager_available():
+        raise ConnectorError("安全手动录入入口目前只支持Windows凭据管理器。")
+    print("请输入公司批准的4台NVR只读连接信息。密码输入时屏幕不会显示字符。")
+    print("信息只保存到当前Windows用户的凭据管理器，不会进入Git、报告或聊天记录。")
+    result: dict[str, Credential] = {}
+    previous_username = ""
+    previous_password = ""
+    for recorder in RECORDER_ORDER:
+        label = RECORDER_LABELS[recorder]
+        host = input(f"{label}（{recorder}）地址: ").strip()
+        reuse_note = "，回车沿用上一台" if previous_username else ""
+        username = input(f"{label}只读用户名{reuse_note}: ").strip()
+        if not username:
+            username = previous_username
+        password_note = "（回车沿用上一台）" if previous_password else ""
+        password = getpass.getpass(f"{label}只读密码{password_note}: ")
+        if not password:
+            password = previous_password
+        credential = Credential(host=host, username=username, password=password)
+        _validate_credential(recorder, credential)
+        result[recorder] = credential
+        previous_username = username
+        previous_password = password
+    save_windows_credentials(result)
+    print("NVR_CREDENTIAL_SETUP=PASS; store=windows-credential-manager; recorders=4")
+    return result
 
 
 def _run_json(command: list[str]) -> dict[str, Any]:
@@ -200,13 +387,31 @@ def save_keychain_credentials(credentials: dict[str, Credential]) -> None:
             raise ConnectorError("无法把NVR连接信息保存到macOS钥匙串。")
 
 
+def load_stored_credentials() -> tuple[dict[str, Credential] | None, str | None]:
+    windows_stored = load_windows_credentials()
+    if windows_stored:
+        return windows_stored, "windows-credential-manager"
+    keychain_stored = load_keychain_credentials()
+    if keychain_stored:
+        return keychain_stored, "keychain"
+    return None, None
+
+
 def load_credentials(import_from_dingtalk: bool, dws: str) -> tuple[dict[str, Credential], str]:
-    stored = load_keychain_credentials()
+    stored, source = load_stored_credentials()
     if stored:
-        return stored, "keychain"
+        assert source is not None
+        return stored, source
     if not import_from_dingtalk:
-        raise ConnectorError("本机没有可用的NVR连接项；首次运行请加 --import-from-dingtalk。")
+        raise ConnectorError(
+            "本机没有可用的NVR连接项；Windows请运行 --setup-credentials，"
+            "资料同步人也可以使用 --import-from-dingtalk。"
+        )
     imported = import_credentials_from_dingtalk(dws)
+    _validate_credential_set(imported)
+    if windows_credential_manager_available():
+        save_windows_credentials(imported)
+        return imported, "dingtalk-to-windows-credential-manager"
     if keychain_available():
         save_keychain_credentials(imported)
         return imported, "dingtalk-to-keychain"
@@ -501,7 +706,21 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="GatePersonAudit只读NVR连接器")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8765)
-    parser.add_argument("--import-from-dingtalk", action="store_true")
+    parser.add_argument(
+        "--setup-credentials",
+        action="store_true",
+        help="在本机隐藏录入4台NVR只读连接项并保存到Windows凭据管理器",
+    )
+    parser.add_argument(
+        "--credential-status",
+        action="store_true",
+        help="只检查本机是否已有完整NVR连接项，不连接NVR",
+    )
+    parser.add_argument(
+        "--import-from-dingtalk",
+        action="store_true",
+        help="仅供有权访问内部发布群的资料同步人导入凭据",
+    )
     parser.add_argument("--check", action="store_true", help="只检查连接后退出")
     parser.add_argument("--dws", default=default_dws())
     args = parser.parse_args()
@@ -510,7 +729,20 @@ def main() -> int:
         return 2
 
     try:
-        credentials, source = load_credentials(args.import_from_dingtalk, args.dws)
+        setup_credentials = setup_windows_credentials_interactive() if args.setup_credentials else None
+        if args.credential_status:
+            stored, source = load_stored_credentials()
+            if stored:
+                print(f"NVR_CREDENTIAL_STATUS=READY; source={source}; recorders={len(stored)}")
+                return 0
+            print("NVR_CREDENTIAL_STATUS=MISSING; run=SETUP-NVR-CREDENTIALS.cmd")
+            return 3
+        if setup_credentials is not None:
+            credentials, source = setup_credentials, "windows-credential-manager"
+            if not args.check:
+                return 0
+        else:
+            credentials, source = load_credentials(args.import_from_dingtalk, args.dws)
         application = GateApplication(credentials, source)
         if args.check:
             status, payload = application.health()

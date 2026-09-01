@@ -58,9 +58,11 @@ if errorlevel 1 (
   exit /b 1
 )
 
-echo [3/4] Installing dependencies and running Windows quality gates...
+echo [3/4] Installing dependencies, running quality gates, and preparing local NVR access...
 set "INSTALL_ARGS="
-if /I "%FACTORY_MONITOR_SKIP_OPEN%"=="1" set "INSTALL_ARGS=-NoCodexLaunch"
+if /I "%FACTORY_MONITOR_SKIP_OPEN%"=="1" set "INSTALL_ARGS=!INSTALL_ARGS! -NoCodexLaunch"
+if /I "%FACTORY_MONITOR_SKIP_CREDENTIAL_SETUP%"=="1" set "INSTALL_ARGS=!INSTALL_ARGS! -SkipCredentialSetup"
+if /I "%FACTORY_MONITOR_NONINTERACTIVE%"=="1" set "INSTALL_ARGS=!INSTALL_ARGS! -SkipCredentialSetup"
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%PROJECT_DIR%\scripts\install-windows.ps1" %INSTALL_ARGS%
 if errorlevel 1 (
   echo [FAILED] Installation or quality gates failed. Send the full console output to the project maintainer.
@@ -70,7 +72,9 @@ if errorlevel 1 (
 
 echo [4/4] Complete.
 echo Project directory: %PROJECT_DIR%
-echo Offline quality gates passed. Live video still requires the user's authorized login, company network, and NVR read-only permission.
+echo The reviewed camera package is built in. Ordinary users do not need access to the Huang Wei work group.
+echo Live video requires four locally stored read-only NVR connection items and the company network or approved VPN.
+echo If credential setup was skipped, run SETUP-NVR-CREDENTIALS.cmd in the project directory later.
 if /I not "%FACTORY_MONITOR_SKIP_OPEN%"=="1" echo Codex opened the factory monitor project and is ready for questions.
 if /I not "%FACTORY_MONITOR_NONINTERACTIVE%"=="1" pause
 exit /b 0

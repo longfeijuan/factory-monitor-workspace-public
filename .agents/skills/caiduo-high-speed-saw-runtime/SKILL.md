@@ -27,9 +27,9 @@ python3 .agents/skills/caiduo-high-speed-saw-runtime/scripts/analyze_runtime.py 
   --output-dir '/absolute/workspace/path/outputs/caiduo-runtime-022'
 ```
 
-   - On Windows, append `--import-from-dingtalk`. The script must reuse `connector/gate_nvr_service.py`; the authorized `dws` session supplies the read-only credential in memory for that run.
-   - On macOS, omit the flag after the connector has stored the credential in Keychain. It is still valid to use the flag for the first authorized import.
-   - If `dws` is not on `PATH`, also pass `--dws 'C:\\absolute\\path\\to\\dws.exe'`.
+   - On Windows, omit `--import-from-dingtalk` after `SETUP-NVR-CREDENTIALS.cmd` has stored the four read-only connection items in Windows Credential Manager. Ordinary users do not need the source group or `dws`.
+   - On macOS, omit the flag after the connector has stored the credential in Keychain.
+   - `--import-from-dingtalk` and `--dws` are only for an authorized data maintainer performing a first import from the internal source group.
 
 4. Read `result.json` and `report.md`. Inspect no more than a few files from `evidence/` when manual confirmation is useful; do not send whole video or all frames to an LLM.
 5. Report the exact window, running rate, running/stopped duration, stop-to-run count, major stopped intervals, sample interval, effective coverage, unknown duration, and ± one-sample boundary precision.
@@ -48,7 +48,7 @@ python3 .agents/skills/caiduo-high-speed-saw-runtime/scripts/analyze_runtime.py 
 
 ## Safety
 
-- Load NVR credentials only through the shared connector. On macOS it may use Keychain; on Windows it must use explicit `--import-from-dingtalk` and keep the credential only in the current process. Never print, log, copy, or embed credentials in reports or Git.
+- Load NVR credentials only through the shared connector. On macOS it may use Keychain; on Windows it must use Windows Credential Manager. Only an authorized data maintainer may use explicit `--import-from-dingtalk`. Never print, log, copy, or embed credentials in reports or Git.
 - Use RTSP/ISAPI read-only retrieval only. Do not deploy, restart services, change NVR settings, or modify formal configurations.
 - Keep workers at 6 or fewer by default. Store only JSON, Markdown, and a few representative JPEGs in the requested output directory.
 - For camera calibration or adding a camera, read `references/calibration.md`. Add a configuration entry only after visual confirmation; do not change core code.

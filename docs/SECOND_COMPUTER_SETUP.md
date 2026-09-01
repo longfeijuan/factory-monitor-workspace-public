@@ -6,7 +6,7 @@ GitHub 仓库负责复制：监控问答规则、摄像头脱敏目录、只读�
 
 普通使用者不需要 GitHub 账号，也不需要加入“黄伟工作群”；公开分发仓库已经包含审核过的脱敏摄像头资料。
 
-只有需要查询真实录像的电脑，才必须单独取得钉钉 `dws` 登录、获批 NVR 只读权限，以及公司内网或 VPN。因为安全和隐私要求，账号密码、原始录像、截图、人员参考图和本机历史运行结果不会跟随 GitHub 同步。
+只有需要查询真实录像的电脑，才必须通过公司批准的安全渠道单独取得4台 NVR 只读连接项，并接入公司内网或获批 VPN。普通使用者不需要钉钉 `dws` 或黄伟工作群权限；`dws` 只供指定资料同步人读取内部原始发布渠道。因为安全和隐私要求，账号密码、原始录像、截图、人员参考图和本机历史运行结果不会跟随 GitHub 同步。
 
 ## Windows 一键安装（推荐）
 
@@ -20,7 +20,8 @@ GitHub 仓库负责复制：监控问答规则、摄像头脱敏目录、只读�
 2. 匿名克隆或安全快进更新 `%USERPROFILE%\Codex\factory-monitor-workspace-public`；
 3. 创建项目专用 `.venv`，安装 Python 和 Node.js 依赖；
 4. 运行仓库自检、摄像头目录校验、连接器/监控契约测试、网页构建与渲染测试；
-5. 仅在全部质量门通过后执行 `codex app <项目目录>`，直接在 Windows Codex 中打开项目。
+5. 本机缺少 NVR 连接项时，提示隐藏录入4台只读连接信息，只保存到当前 Windows 用户的凭据管理器；
+6. 仅在全部质量门通过后执行 `codex app <项目目录>`，直接在 Windows Codex 中打开项目。
 
 现有目录有未提交改动、GitHub 无法访问或任何质量门失败时，安装器会停止。验证证书保存在本机 `runtime/onboarding/windows-ready.json`，该目录不会提交到 GitHub。
 
@@ -45,13 +46,16 @@ pnpm test
 
 ## 首次实时查询
 
-先完成公司账号授权并登录 `dws`，然后执行：
+安装器会自动检查本机凭据状态。若安装时暂未取得公司批准的4台只读连接项，之后在项目目录双击 `SETUP-NVR-CREDENTIALS.cmd`；输入密码时屏幕不会显示字符。也可以手动执行：
 
 ```powershell
-dws doctor --format json
+.\.venv\Scripts\python.exe connector\gate_nvr_service.py --setup-credentials
+.\.venv\Scripts\python.exe connector\gate_nvr_service.py --credential-status
 .\.venv\Scripts\python.exe scripts\monitor_self_check.py --live
-.\.venv\Scripts\python.exe connector\gate_nvr_service.py --import-from-dingtalk --check
+.\.venv\Scripts\python.exe connector\gate_nvr_service.py --check
 ```
+
+连接项只保存在当前 Windows 用户的凭据管理器中，不进入项目目录、GitHub、报告或聊天记录。公开链接不能安全携带共用密码；连接项必须由公司授权人员通过批准的密码管理器、当面录入或其他安全渠道交付。
 
 普通使用者不要运行黄伟工作群同步命令。只有指定资料同步人在确认群权限后执行：
 
@@ -63,28 +67,27 @@ python3 scripts/monitor_self_check.py
 
 同步人审核变更后提交并推送 GitHub；其他电脑通过 `git pull` 获取更新。
 
-在 macOS 上，连接器会把凭据存入系统钥匙串。换机时不要导出旧电脑钥匙串、配置 JSON 或聊天里的密码；应在新电脑重新从获批来源导入。
+在 macOS 上，连接器从系统钥匙串读取凭据。换机时不要导出旧电脑钥匙串、Windows 凭据、配置 JSON 或聊天里的密码；应在新电脑重新从获批来源安全录入。
 
 ### Windows 查询材多监控
 
-Windows 没有 macOS 钥匙串。先确保电脑在公司内网或 VPN 中、`dws doctor --format json` 通过，并且当前钉钉账号获准读取 NVR 只读授权来源。材多查询必须从仓库根目录运行，并在分析命令后加入 `--import-from-dingtalk`：
+先确保电脑在公司内网或获批 VPN 中，并已通过 `SETUP-NVR-CREDENTIALS.cmd` 把4台只读连接项保存到 Windows 凭据管理器。材多查询从仓库根目录运行，不需要黄伟工作群或 `--import-from-dingtalk`：
 
 ```powershell
 .\.venv\Scripts\python.exe .agents/skills/caiduo-high-speed-saw-runtime/scripts/analyze_runtime.py `
   --camera-id 022 `
   --start '2026-08-31T08:00:00+08:00' `
   --end '2026-08-31T12:00:00+08:00' `
-  --output-dir "$PWD/outputs/caiduo-runtime-022" `
-  --import-from-dingtalk
+  --output-dir "$PWD/outputs/caiduo-runtime-022"
 ```
 
-凭据只保留在这一次 Python 进程的内存里，不会写入 GitHub、配置文件或报告。以后在 Windows 的 Codex 项目里直接提问材多开机率时，项目技能会自动按这个方式调用；使用者不需要在提示词里写命令。如果出现 `nvr_credentials_unavailable`，依次检查 `dws doctor --format json`、公司内网/VPN、钉钉授权和 `.\.venv\Scripts\python.exe connector\gate_nvr_service.py --import-from-dingtalk --check`。
+查询时从 Windows 凭据管理器读取连接项，凭据不会写入 GitHub、配置文件或报告。以后在 Windows Codex 项目里直接提问材多开机率时，项目技能会自动读取，使用者不需要在提示词里写命令。如果出现 `nvr_credentials_unavailable`，依次检查 `.\.venv\Scripts\python.exe connector\gate_nvr_service.py --credential-status`、公司内网/VPN和 `.\.venv\Scripts\python.exe connector\gate_nvr_service.py --check`。
 
 ## 开始问问题
 
 检查通过后，直接从这个 Codex 项目提问即可。Codex 会先报告仓库内置资料包的文件名和发布时间，再按问题加载对应技能。没有黄伟工作群权限不会影响读取监控目录、规则和技能；只有“核对群内是否发布了更新”必须由资料同步人完成。
 
-若电脑不在公司网络、`dws` 未登录或没有录像权限，仍可回答摄像头目录、统计口径和操作方法，但不能声称已经核查了真实录像。
+若电脑不在公司网络、本机没有完整 NVR 只读连接项或没有录像权限，仍可回答摄像头目录、统计口径和操作方法，但不能声称已经核查了真实录像。
 
 ## 58号门跨电脑一致性验收
 

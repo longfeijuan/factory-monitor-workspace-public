@@ -1,4 +1,4 @@
-# 工厂监控问答工作区（公开脱敏分发版）
+# 工厂监控问答工作区
 
 这个仓库把“换一台电脑后，Codex 仍能按同一口径回答监控问题”所需的代码、脱敏摄像头资料、区域操作手册和自检流程放在一起。
 
@@ -11,13 +11,13 @@
 1. 点击 [下载 Windows 一键安装器](https://github.com/longfeijuan/factory-monitor-workspace-public/releases/latest/download/INSTALL-WINDOWS.cmd)。
 2. 运行下载的 `INSTALL-WINDOWS.cmd`；首次打开 Codex 时，使用本人的 ChatGPT/Codex 账号登录。
 
-安装器会自动检查或安装 Git、Node.js 22+、Python 3.11、pnpm 和 Codex，匿名克隆公开脱敏项目到 `%USERPROFILE%\Codex\factory-monitor-workspace-public`，创建独立 `.venv`，安装依赖，执行仓库自检、摄像头目录校验、连接器测试和网页测试，全部通过后用 `codex app` 直接把项目打开到 Windows Codex。任何质量门失败都会停止，不会把失败状态写成可用。
+安装器会自动检查或安装 Git、Node.js 22+、Python 3.11、pnpm 和 Codex，匿名克隆公开脱敏项目到 `%USERPROFILE%\Codex\factory-monitor-workspace-public`，创建独立 `.venv`，安装依赖，执行仓库自检、摄像头目录校验、连接器测试和网页测试。若本机尚无 NVR 连接项，安装器会提示普通使用者在本机隐藏录入4台只读连接信息，并只保存到当前 Windows 用户的凭据管理器；不需要进入“黄伟工作群”。全部质量门通过后才用 `codex app` 直接打开项目。
 
-GitHub 链接只分发代码、脱敏目录和监控规则。真实录像必须由同事在自己的电脑上登录公司授权的 `dws`，并位于公司内网或获批 VPN；NVR 凭据只在当前查询进程内存中使用，不进入 GitHub。完整说明见 [Windows/第二台电脑安装说明](docs/SECOND_COMPUTER_SETUP.md)。
+GitHub 链接只分发代码、脱敏目录和监控规则，绝不携带密码。真实录像要求同事位于公司内网或获批 VPN，并通过公司批准的安全渠道取得 NVR 只读连接项，在自己的电脑上完成本机录入；凭据不进入 GitHub、项目文件、报告或聊天记录。`dws` 只供指定资料同步人读取内部原始发布渠道，普通查询不依赖 `dws`。完整说明见 [Windows/第二台电脑安装说明](docs/SECOND_COMPUTER_SETUP.md)。
 
 ## 手动安装或在 Mac 上使用
 
-1. 安装 Codex、Git、Python 3、Node.js 22+ 和 pnpm。只有资料同步人或需要访问获批钉钉/NVR 实时数据的人员才需要安装并登录公司授权的 `dws` 钉钉 CLI。
+1. 安装 Codex、Git、Python 3、Node.js 22+ 和 pnpm。只有指定资料同步人需要安装并登录公司授权的 `dws` 钉钉 CLI；普通实时查询使用本机安全保存的 NVR 只读连接项。
 2. 匿名克隆公开脱敏仓库 [longfeijuan/factory-monitor-workspace-public](https://github.com/longfeijuan/factory-monitor-workspace-public)，再在 Codex 中把仓库根目录设为项目主目录。这样 Codex 会自动读取 `AGENTS.md` 和 `.agents/skills/` 下的监控流程。
 3. 运行离线自检：
 
@@ -31,7 +31,7 @@ pnpm test
 
 只有运行 YOLO 人体/物品候选脚本时才需要另装 `requirements-ml.txt`；普通 NVR 抽帧、开机率和人员人工复核不需要下载整套机器学习依赖。
 
-4. 普通使用者不需要加入“黄伟工作群”；仓库已经包含审核过的脱敏摄像头资料。首次需要查询真实录像时，按公司授权登录 `dws` 并导入本机只读 NVR 凭据。只有资料同步人才运行第一条黄伟群同步命令：
+4. 普通使用者不需要加入“黄伟工作群”；仓库已经包含审核过的脱敏摄像头资料。Windows 首次需要查询真实录像时，双击 `SETUP-NVR-CREDENTIALS.cmd`，把通过公司批准安全渠道取得的4台只读连接项隐藏录入 Windows 凭据管理器。只有资料同步人才登录 `dws` 并运行第一条黄伟群同步命令：
 
 ```bash
 # 仅资料同步人执行
@@ -43,7 +43,7 @@ python3 scripts/monitor_self_check.py --live
 pnpm run connector
 ```
 
-macOS 会把从已授权钉钉会话导入的只读 NVR 凭据保存到系统钥匙串；其他系统只在当前连接器进程内存中保留。凭据不会写入仓库。真实回放还要求电脑位于获批的公司网络或 VPN，并拥有对应的钉钉和录像权限。
+Windows 从凭据管理器读取本机只读 NVR 连接项；macOS 从系统钥匙串读取。指定资料同步人仍可从获批钉钉会话导入，但普通使用者不需要群权限或 `dws`。凭据不会写入仓库。真实回放还要求电脑位于获批的公司网络或 VPN，并拥有对应录像权限。
 
 更完整的换机步骤见 [docs/SECOND_COMPUTER_SETUP.md](docs/SECOND_COMPUTER_SETUP.md)。
 

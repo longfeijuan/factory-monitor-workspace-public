@@ -11,7 +11,7 @@
     "start": "node scripts/run-vinext.mjs start",
     "test": "pnpm run build && node --test tests/rendered-html.test.mjs",
     "test:connector": "node scripts/run-python.mjs -m unittest connector/test_gate_nvr_service.py connector/test_side_door_monitor.py && node scripts/run-python.mjs -m unittest discover -s tests -p test_*.py",
-    "connector": "node scripts/run-python.mjs connector/gate_nvr_service.py --import-from-dingtalk --port 8766",
+    "connector": "node scripts/run-python.mjs connector/gate_nvr_service.py --port 8766",
     "sync:catalog": "node scripts/run-python.mjs scripts/sync_camera_catalog.py",
     "self-check": "node scripts/run-python.mjs scripts/monitor_self_check.py",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",

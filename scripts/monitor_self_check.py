@@ -6,9 +6,9 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import platform
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 
 
@@ -160,6 +160,27 @@ def cnc_floor1_runtime_contract_status() -> tuple[bool, str]:
     return True, "一楼电脑锣v2.1固定通道49、六灯位、临界点延长复核及跨电脑≤1.0个百分点契约已安装"
 
 
+def windows_credential_onboarding_status() -> tuple[bool, str]:
+    connector = ROOT / "connector" / "gate_nvr_service.py"
+    setup = ROOT / "SETUP-NVR-CREDENTIALS.cmd"
+    installer = ROOT / "scripts" / "install-windows.ps1"
+    for target in (connector, setup, installer):
+        if not target.is_file():
+            return False, f"Windows本机凭据入口缺少：{target.relative_to(ROOT)}"
+    connector_text = connector.read_text(encoding="utf-8")
+    installer_text = installer.read_text(encoding="utf-8")
+    required_connector_tokens = (
+        "--setup-credentials",
+        "--credential-status",
+        "windows-credential-manager",
+    )
+    if any(token not in connector_text for token in required_connector_tokens):
+        return False, "Windows连接器未完整接入本机凭据管理器入口"
+    if "Secure local NVR credential setup" not in installer_text:
+        return False, "Windows一键安装器未接入本机NVR凭据向导"
+    return True, "Windows普通使用者可在不访问内部源群的情况下安全录入4台只读NVR连接项"
+
+
 def git_boundary_status() -> tuple[bool, str]:
     if not (ROOT / ".git").exists():
         return True, "当前是导出目录，跳过Git跟踪边界检查"
@@ -183,7 +204,8 @@ def git_boundary_status() -> tuple[bool, str]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="监控项目跨电脑自检")
-    parser.add_argument("--live", action="store_true", help="同时要求钉钉CLI和本机实时连接条件")
+    parser.add_argument("--live", action="store_true", help="同时要求本机已安全保存完整NVR只读连接项")
+    parser.add_argument("--source-sync", action="store_true", help="资料同步人额外检查钉钉CLI")
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
 
@@ -194,6 +216,7 @@ def main() -> int:
         ("reproducibility_contract", reproducibility_contract_status),
         ("gate58_contract", gate58_contract_status),
         ("cnc_floor1_runtime_contract", cnc_floor1_runtime_contract_status),
+        ("windows_credential_onboarding", windows_credential_onboarding_status),
         ("git_data_boundary", git_boundary_status),
     ):
         try:
@@ -211,7 +234,7 @@ def main() -> int:
     }
     for name, value in tools.items():
         exists = bool(value and Path(value).exists())
-        required = name in {"python", "node", "pnpm"} or (args.live and name == "dws")
+        required = name in {"python", "node", "pnpm"} or (args.source_sync and name == "dws")
         checks.append(
             {
                 "name": f"tool_{name}",
@@ -222,10 +245,23 @@ def main() -> int:
         )
 
     if args.live:
-        live_message = "macOS钥匙串可用；首次运行仍需从钉钉导入只读凭据"
-        if platform.system() != "Darwin":
-            live_message = "非macOS系统将只在连接器进程内存中保存本次导入的凭据"
-        checks.append({"name": "credential_mode", "ok": True, "required": False, "message": live_message})
+        connector = ROOT / "connector" / "gate_nvr_service.py"
+        completed = subprocess.run(
+            [sys.executable, str(connector), "--credential-status"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            timeout=20,
+        )
+        live_message = (completed.stdout or completed.stderr).strip()
+        checks.append(
+            {
+                "name": "credential_store",
+                "ok": completed.returncode == 0,
+                "required": True,
+                "message": live_message or "本机NVR连接项状态未知",
+            }
+        )
 
     failed = [item for item in checks if item["required"] and not item["ok"]]
     payload = {"ok": not failed, "project": str(ROOT), "checks": checks}
