@@ -14,7 +14,8 @@ if not exist "%PYTHON%" (
 
 echo.
 echo This setup does not require access to the Huang Wei work group.
-echo Obtain the four read-only NVR connection items through a company-approved secure channel.
+echo The four approved NVR addresses are already built into the project.
+echo You only need the main-site and Caiduo read-only usernames and passwords.
 echo Passwords are entered invisibly and stored only in this Windows user's Credential Manager.
 echo Do not send passwords in chat and do not save them in the project directory.
 echo.
@@ -28,7 +29,7 @@ if errorlevel 1 (
 
 "%PYTHON%" "%PROJECT_DIR%connector\gate_nvr_service.py" --credential-status
 if errorlevel 1 (
-  echo [FAILED] The four local NVR connection items are incomplete.
+  echo [FAILED] The local NVR usernames or passwords are incomplete.
   pause
   exit /b 1
 )

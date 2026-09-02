@@ -1,13 +1,13 @@
 # 工厂监控问答项目规则
 
-本仓库的目标是让 Codex 在任何获批电脑上，按一致口径执行只读监控查询。真实录像、截图、密码、私密连接配置和人员参考图不进入 Git。
+本仓库的目标是让 Codex 在任何获批电脑上，按一致口径执行只读监控查询。4台获批内网 NVR 地址作为公开连接目录内置；真实录像、截图、用户名、密码和人员参考图不进入 Git。
 
 ## 每次监控查询前
 
 1. 先读取 `camera-data/current/SOURCE.json`，并运行 `python3 scripts/sync_camera_catalog.py --check`，确认仓库内置脱敏资料包及摄像头目录一致。
 2. 只有被指定为“资料同步人”且有权访问钉钉“黄伟工作群”时，才运行 `python3 scripts/fetch_latest_camera_package.py --apply` 拉取新包，随后运行 `python3 scripts/sync_camera_catalog.py`、自检、提交并推送 GitHub。普通使用者不需要加入黄伟工作群，直接使用 GitHub 中已审核的内置版本。
 3. 无法访问黄伟工作群时，不得绕过群权限，也不应阻塞普通问答；结果中写明 `SOURCE.json` 记录的文件名和发布时间，并称为“仓库内置版本”，不得声称它是群内最新版本。若业务必须核对群内最新发布，转交资料同步人处理。
-4. Windows 普通使用者从 Windows 凭据管理器读取4台本机 NVR 只读连接项；缺少时运行 `SETUP-NVR-CREDENTIALS.cmd` 安全录入。不得要求普通使用者加入黄伟工作群或使用 `--import-from-dingtalk`；该参数只供获批资料同步人使用。凭据不得进入 Git、项目文件、报告或聊天记录。
+4. Windows 普通使用者直接使用 `config/nvr-endpoints.json` 内置的4台获批 NVR 地址，并从 Windows 凭据管理器读取本机只读账号和密码；缺少时运行 `SETUP-NVR-CREDENTIALS.cmd` 安全录入。不得要求普通使用者加入黄伟工作群或使用 `--import-from-dingtalk`；该参数只供获批资料同步人使用。用户名和密码不得进入 Git、项目文件、报告或聊天记录。
 5. 将“今天、昨天、白班、夜班”等转换为 `Asia/Shanghai` 的绝对起止时间，并在结果中写明。
 6. 根据问题使用 `.agents/skills/` 中最贴合区域的技能；先完整读取其 `SKILL.md` 和该任务要求的 reference。
 

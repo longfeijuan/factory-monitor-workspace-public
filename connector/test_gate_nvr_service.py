@@ -41,10 +41,16 @@ class CoverageTests(unittest.TestCase):
 
 class CredentialPortabilityTests(unittest.TestCase):
     def setUp(self):
+        builtin_hosts = gate.load_builtin_hosts()
         self.credentials = {
-            recorder: gate.Credential("nvr-fixture.internal", "readonly", "not-a-real-password")
+            recorder: gate.Credential(builtin_hosts[recorder], "readonly", "not-a-real-password")
             for recorder in gate.RECORDER_ORDER
         }
+
+    def test_builtin_endpoint_catalog_is_complete_and_grouped(self):
+        hosts = gate.load_builtin_hosts()
+        self.assertEqual(tuple(hosts), gate.RECORDER_ORDER)
+        self.assertEqual(len(set(hosts.values())), 4)
 
     @mock.patch.object(gate, "windows_credential_manager_available", return_value=False)
     @mock.patch.object(gate, "import_credentials_from_dingtalk")
@@ -100,39 +106,34 @@ class CredentialPortabilityTests(unittest.TestCase):
         self, _available, read_secret
     ):
         read_secret.return_value = (
-            '{"host":"nvr-fixture.internal","username":"readonly","password":"fixture-secret"}'
+            '{"username":"readonly","password":"fixture-secret"}'
         )
         credentials = gate.load_windows_credentials()
         self.assertEqual(set(credentials or {}), set(gate.RECORDER_ORDER))
+        self.assertEqual(
+            {recorder: credential.host for recorder, credential in (credentials or {}).items()},
+            gate.load_builtin_hosts(),
+        )
         self.assertEqual(read_secret.call_count, 4)
 
     @mock.patch.object(gate, "_write_windows_secret")
     @mock.patch.object(gate, "windows_credential_manager_available", return_value=True)
     def test_save_windows_credentials_uses_separate_manager_entries(self, _available, write_secret):
-        credentials = {
-            recorder: gate.Credential("nvr-fixture.internal", "readonly", "fixture-secret")
-            for recorder in gate.RECORDER_ORDER
-        }
-        gate.save_windows_credentials(credentials)
+        gate.save_windows_credentials(self.credentials)
         self.assertEqual(write_secret.call_count, 4)
         targets = [call.args[0] for call in write_secret.call_args_list]
         self.assertEqual(
             targets,
             [gate._windows_credential_target(recorder) for recorder in gate.RECORDER_ORDER],
         )
+        self.assertTrue(all('"host"' not in call.args[1] for call in write_secret.call_args_list))
 
     @mock.patch.object(gate, "save_windows_credentials")
-    @mock.patch.object(gate.getpass, "getpass", side_effect=["main-secret", "", "", "caiduo-secret"])
+    @mock.patch.object(gate.getpass, "getpass", side_effect=["main-secret", "caiduo-secret"])
     @mock.patch(
         "builtins.input",
         side_effect=[
-            "nvr-main-01.internal",
             "main-readonly",
-            "nvr-main-02.internal",
-            "",
-            "nvr-main-03.internal",
-            "",
-            "nvr-caiduo.internal",
             "caiduo-readonly",
         ],
     )
@@ -141,9 +142,25 @@ class CredentialPortabilityTests(unittest.TestCase):
         self, _available, _input, _getpass, saved
     ):
         credentials = gate.setup_windows_credentials_interactive()
+        self.assertEqual(
+            {recorder: credential.host for recorder, credential in credentials.items()},
+            gate.load_builtin_hosts(),
+        )
         self.assertEqual(credentials["nvr-main-02"].username, "main-readonly")
         self.assertEqual(credentials["nvr-main-03"].password, "main-secret")
         self.assertEqual(credentials["nvr-caiduo"].username, "caiduo-readonly")
+        saved.assert_called_once_with(credentials)
+
+    @mock.patch.object(gate, "save_windows_credentials")
+    @mock.patch.object(gate.getpass, "getpass", side_effect=["main-secret", ""])
+    @mock.patch("builtins.input", side_effect=["main-readonly", ""])
+    @mock.patch.object(gate, "windows_credential_manager_available", return_value=True)
+    def test_interactive_setup_can_reuse_main_credentials_for_caiduo(
+        self, _available, _input, _getpass, saved
+    ):
+        credentials = gate.setup_windows_credentials_interactive()
+        self.assertEqual(credentials["nvr-caiduo"].username, "main-readonly")
+        self.assertEqual(credentials["nvr-caiduo"].password, "main-secret")
         saved.assert_called_once_with(credentials)
 
 

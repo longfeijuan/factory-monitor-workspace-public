@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import ipaddress
 import json
 import shutil
 import subprocess
@@ -49,6 +50,31 @@ def catalog_status() -> tuple[bool, str]:
     if len(rows) != expected:
         return False, f"工作台目录为{len(rows)}路，当前资料包为{expected}路"
     return True, f"工作台目录数量正确：{expected}路"
+
+
+def nvr_endpoint_catalog_status() -> tuple[bool, str]:
+    path = ROOT / "config" / "nvr-endpoints.json"
+    if not path.is_file():
+        return False, "缺少config/nvr-endpoints.json"
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if payload.get("schema_version") != 1:
+        return False, "NVR内置地址目录版本不是1"
+    recorders = payload.get("recorders", {})
+    expected = {"nvr-main-01", "nvr-main-02", "nvr-main-03", "nvr-caiduo"}
+    if set(recorders) != expected:
+        return False, "NVR内置地址目录没有完整包含4台录像机"
+    for recorder, entry in recorders.items():
+        expected_group = "caiduo" if recorder == "nvr-caiduo" else "main"
+        if entry.get("credential_group") != expected_group:
+            return False, f"{recorder}的凭据分组不正确"
+        host = str(entry.get("host", ""))
+        try:
+            address = ipaddress.ip_address(host)
+        except ValueError:
+            return False, f"{recorder}的内置地址格式无效"
+        if address.version != 4 or not address.is_private:
+            return False, f"{recorder}的内置地址不是公司私有IPv4地址"
+    return True, "4台获批NVR地址已内置；普通使用者只需本机录入账号和密码"
 
 
 def gate58_contract_status() -> tuple[bool, str]:
@@ -173,12 +199,13 @@ def windows_credential_onboarding_status() -> tuple[bool, str]:
         "--setup-credentials",
         "--credential-status",
         "windows-credential-manager",
+        "load_builtin_hosts",
     )
     if any(token not in connector_text for token in required_connector_tokens):
         return False, "Windows连接器未完整接入本机凭据管理器入口"
     if "Secure local NVR credential setup" not in installer_text:
         return False, "Windows一键安装器未接入本机NVR凭据向导"
-    return True, "Windows普通使用者可在不访问内部源群的情况下安全录入4台只读NVR连接项"
+    return True, "Windows普通使用者无需输入地址，可在不访问内部源群的情况下安全录入只读账号和密码"
 
 
 def git_boundary_status() -> tuple[bool, str]:
@@ -213,6 +240,7 @@ def main() -> int:
     for name, check in (
         ("sanitized_package", verify_manifest),
         ("generated_catalog", catalog_status),
+        ("nvr_endpoint_catalog", nvr_endpoint_catalog_status),
         ("reproducibility_contract", reproducibility_contract_status),
         ("gate58_contract", gate58_contract_status),
         ("cnc_floor1_runtime_contract", cnc_floor1_runtime_contract_status),

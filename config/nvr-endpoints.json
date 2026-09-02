@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "visibility": "approved-public-internal-addresses",
+  "recorders": {
+    "nvr-main-01": {
+      "host": "192.168.0.1",
+      "credential_group": "main"
+    },
+    "nvr-main-02": {
+      "host": "192.168.0.2",
+      "credential_group": "main"
+    },
+    "nvr-main-03": {
+      "host": "192.168.0.3",
+      "credential_group": "main"
+    },
+    "nvr-caiduo": {
+      "host": "192.168.88.254",
+      "credential_group": "caiduo"
+    }
+  }
+}

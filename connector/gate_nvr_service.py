@@ -42,6 +42,7 @@ from urllib.request import (
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 CAMERA_FILE = PROJECT_ROOT / "public" / "data" / "cameras.json"
+NVR_ENDPOINT_FILE = PROJECT_ROOT / "config" / "nvr-endpoints.json"
 KEYCHAIN_PREFIX = "com.codex.gate-person-audit"
 WINDOWS_CREDENTIAL_PREFIX = "FactoryMonitor/NVR"
 DINGTALK_GROUP = "黄伟工作群"
@@ -88,6 +89,33 @@ class ConnectorError(RuntimeError):
     pass
 
 
+def load_builtin_hosts() -> dict[str, str]:
+    try:
+        payload = json.loads(NVR_ENDPOINT_FILE.read_text(encoding="utf-8"))
+        recorders = payload["recorders"]
+    except (OSError, KeyError, TypeError, json.JSONDecodeError) as error:
+        raise ConnectorError("项目内置NVR地址目录缺失或格式无效。") from error
+    if payload.get("schema_version") != 1 or set(recorders) != set(RECORDER_ORDER):
+        raise ConnectorError("项目内置NVR地址目录必须完整包含4台录像机。")
+    result: dict[str, str] = {}
+    for recorder in RECORDER_ORDER:
+        entry = recorders[recorder]
+        if not isinstance(entry, dict):
+            raise ConnectorError(f"{recorder}的内置地址项格式无效。")
+        host = str(entry.get("host", "")).strip()
+        expected_group = "caiduo" if recorder == "nvr-caiduo" else "main"
+        if entry.get("credential_group") != expected_group:
+            raise ConnectorError(f"{recorder}的内置凭据分组无效。")
+        try:
+            address = ipaddress.ip_address(host)
+        except ValueError:
+            raise ConnectorError(f"{recorder}的内置地址不是有效IP地址。") from None
+        if address.version != 4 or not address.is_private:
+            raise ConnectorError(f"{recorder}的内置地址不是公司私有IPv4地址。")
+        result[recorder] = host
+    return result
+
+
 def _validate_credential(recorder: str, credential: Credential) -> None:
     if recorder not in RECORDER_ORDER:
         raise ConnectorError("NVR连接项名称无效。")
@@ -106,6 +134,9 @@ def _validate_credential(recorder: str, credential: Credential) -> None:
     else:
         if address.version != 4 or not address.is_private:
             raise ConnectorError(f"{recorder}必须填写公司内网或VPN可访问的私有IPv4地址。")
+    expected_host = load_builtin_hosts()[recorder]
+    if host != expected_host:
+        raise ConnectorError(f"{recorder}必须使用项目内置地址目录中的地址。")
     if "\x00" in username or "\x00" in password:
         raise ConnectorError(f"{recorder}的用户名或密码包含无效字符。")
 
@@ -182,6 +213,7 @@ def load_windows_credentials() -> dict[str, Credential] | None:
     if not windows_credential_manager_available():
         return None
     result: dict[str, Credential] = {}
+    builtin_hosts = load_builtin_hosts()
     for recorder in RECORDER_ORDER:
         secret = _read_windows_secret(_windows_credential_target(recorder))
         if secret is None:
@@ -189,7 +221,7 @@ def load_windows_credentials() -> dict[str, Credential] | None:
         try:
             payload = json.loads(secret)
             result[recorder] = Credential(
-                host=str(payload["host"]),
+                host=builtin_hosts[recorder],
                 username=str(payload["username"]),
                 password=str(payload["password"]),
             )
@@ -206,7 +238,7 @@ def save_windows_credentials(credentials: dict[str, Credential]) -> None:
     for recorder in RECORDER_ORDER:
         credential = credentials[recorder]
         secret = json.dumps(
-            {"host": credential.host, "username": credential.username, "password": credential.password},
+            {"username": credential.username, "password": credential.password},
             ensure_ascii=False,
             separators=(",", ":"),
         )
@@ -216,27 +248,22 @@ def save_windows_credentials(credentials: dict[str, Credential]) -> None:
 def setup_windows_credentials_interactive() -> dict[str, Credential]:
     if not windows_credential_manager_available():
         raise ConnectorError("安全手动录入入口目前只支持Windows凭据管理器。")
-    print("请输入公司批准的4台NVR只读连接信息。密码输入时屏幕不会显示字符。")
-    print("信息只保存到当前Windows用户的凭据管理器，不会进入Git、报告或聊天记录。")
-    result: dict[str, Credential] = {}
-    previous_username = ""
-    previous_password = ""
-    for recorder in RECORDER_ORDER:
-        label = RECORDER_LABELS[recorder]
-        host = input(f"{label}（{recorder}）地址: ").strip()
-        reuse_note = "，回车沿用上一台" if previous_username else ""
-        username = input(f"{label}只读用户名{reuse_note}: ").strip()
-        if not username:
-            username = previous_username
-        password_note = "（回车沿用上一台）" if previous_password else ""
-        password = getpass.getpass(f"{label}只读密码{password_note}: ")
-        if not password:
-            password = previous_password
-        credential = Credential(host=host, username=username, password=password)
-        _validate_credential(recorder, credential)
-        result[recorder] = credential
-        previous_username = username
-        previous_password = password
+    print("4台NVR地址已经内置，不需要手动输入地址。密码输入时屏幕不会显示字符。")
+    print("账号和密码只保存到当前Windows用户的凭据管理器，不会进入Git、报告或聊天记录。")
+    builtin_hosts = load_builtin_hosts()
+    main_username = input("主厂区3台NVR只读用户名: ").strip()
+    main_password = getpass.getpass("主厂区3台NVR只读密码: ")
+    caiduo_username = input("材多NVR只读用户名（回车沿用主厂区）: ").strip() or main_username
+    caiduo_password = getpass.getpass("材多NVR只读密码（回车沿用主厂区）: ") or main_password
+    result = {
+        recorder: Credential(
+            host=builtin_hosts[recorder],
+            username=caiduo_username if recorder == "nvr-caiduo" else main_username,
+            password=caiduo_password if recorder == "nvr-caiduo" else main_password,
+        )
+        for recorder in RECORDER_ORDER
+    }
+    _validate_credential_set(result)
     save_windows_credentials(result)
     print("NVR_CREDENTIAL_SETUP=PASS; store=windows-credential-manager; recorders=4")
     return result
@@ -339,6 +366,7 @@ def load_keychain_credentials() -> dict[str, Credential] | None:
     if not keychain_available():
         return None
     result: dict[str, Credential] = {}
+    builtin_hosts = load_builtin_hosts()
     for recorder in RECORDER_ORDER:
         completed = subprocess.run(
             ["/usr/bin/security", "find-generic-password", "-s", _keychain_service(recorder), "-a", "connection", "-w"],
@@ -351,7 +379,7 @@ def load_keychain_credentials() -> dict[str, Credential] | None:
         try:
             payload = json.loads(completed.stdout)
             result[recorder] = Credential(
-                host=str(payload["host"]), username=str(payload["username"]), password=str(payload["password"])
+                host=builtin_hosts[recorder], username=str(payload["username"]), password=str(payload["password"])
             )
         except (KeyError, TypeError, json.JSONDecodeError) as error:
             raise ConnectorError("钥匙串中的NVR连接项格式无效。") from error
@@ -363,7 +391,7 @@ def save_keychain_credentials(credentials: dict[str, Credential]) -> None:
         raise ConnectorError("当前系统没有可用的macOS钥匙串。")
     for recorder, credential in credentials.items():
         secret = json.dumps(
-            {"host": credential.host, "username": credential.username, "password": credential.password},
+            {"username": credential.username, "password": credential.password},
             ensure_ascii=False,
             separators=(",", ":"),
         )
@@ -709,7 +737,7 @@ def main() -> int:
     parser.add_argument(
         "--setup-credentials",
         action="store_true",
-        help="在本机隐藏录入4台NVR只读连接项并保存到Windows凭据管理器",
+        help="使用内置4台地址，在本机隐藏录入只读用户名和密码并保存到Windows凭据管理器",
     )
     parser.add_argument(
         "--credential-status",

@@ -208,14 +208,14 @@ try {
     if (-not $credentialsReady -and -not $skipCredentialWizard) {
         Write-Host ''
         Write-Host 'Live NVR setup: ordinary users do not need access to the Huang Wei work group.' -ForegroundColor Cyan
-        Write-Host 'Obtain the four read-only NVR connection items through a company-approved secure channel.' -ForegroundColor Yellow
+        Write-Host 'The four approved NVR addresses are built in. Only read-only usernames and passwords are required.' -ForegroundColor Yellow
         Write-Host 'Passwords will be entered invisibly and saved only in this Windows user Credential Manager.' -ForegroundColor Yellow
-        $answer = Read-Host 'Set up the four read-only NVR connections now? [Y/n]'
+        $answer = Read-Host 'Set up the read-only NVR usernames and passwords now? [Y/n]'
         if ([string]::IsNullOrWhiteSpace($answer) -or $answer -match '^(?i:y|yes)$') {
             Invoke-Native -FilePath $venvPython -Arguments @('connector/gate_nvr_service.py', '--setup-credentials') -Description 'Secure local NVR credential setup'
             $credentialsReady = Test-NvrCredentialStatus
             if (-not $credentialsReady) {
-                throw 'The four NVR connection items were not stored completely.'
+                throw 'The NVR usernames or passwords were not stored completely.'
             }
         }
     }
@@ -224,7 +224,7 @@ try {
         Write-Host 'FACTORY_MONITOR_LIVE_CREDENTIALS=READY; group access is not required.' -ForegroundColor Green
     }
     else {
-        Write-Host 'FACTORY_MONITOR_LIVE_CREDENTIALS=AUTH_REQUIRED; run SETUP-NVR-CREDENTIALS.cmd after receiving the approved read-only connection items.' -ForegroundColor Yellow
+        Write-Host 'FACTORY_MONITOR_LIVE_CREDENTIALS=AUTH_REQUIRED; run SETUP-NVR-CREDENTIALS.cmd after receiving the approved read-only usernames and passwords.' -ForegroundColor Yellow
     }
 
     $dws = Get-AvailableCommand -Names @('dws.exe', 'dws')
