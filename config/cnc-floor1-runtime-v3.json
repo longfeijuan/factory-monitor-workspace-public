@@ -1,0 +1,98 @@
+{
+  "schema_version": 3,
+  "policy_version": "cnc-floor1-green-blink-v3.0-dual-view",
+  "timezone": "Asia/Shanghai",
+  "valid_from_local": "2026-08-28T00:00:00",
+  "change_reason": "纠正v2.1把物理5号机亮灯记到4号、并把通道49不可见的物理4号机误报为0%的机台映射错误；通道49保留可见的1、2、3、5、6号，通道2鱼眼1只补物理4号。",
+  "sources": {
+    "passage49": {
+      "camera": {
+        "recorder": "nvr-main-02",
+        "channel": 49,
+        "track": 4901,
+        "source_label": "一楼电脑锣过道"
+      },
+      "calibration": {
+        "reference_size": [1280, 720],
+        "machine_rois": {
+          "1": [515, 420, 555, 455],
+          "2": [570, 215, 603, 250],
+          "3": [955, 65, 1008, 130],
+          "5": [1145, 195, 1220, 305],
+          "6": [540, 25, 580, 75]
+        }
+      }
+    },
+    "fisheye1": {
+      "camera": {
+        "recorder": "nvr-main-02",
+        "channel": 2,
+        "track": 201,
+        "source_label": "一楼鱼眼1"
+      },
+      "calibration": {
+        "reference_size": [2560, 1440],
+        "machine_rois": {
+          "4": [1980, 390, 2125, 585]
+        }
+      }
+    }
+  },
+  "machine_source_map": {
+    "1": "passage49",
+    "2": "passage49",
+    "3": "passage49",
+    "4": "fisheye1",
+    "5": "passage49",
+    "6": "passage49"
+  },
+  "calibration_review": {
+    "reviewed_at_local": "2026-09-02T14:30:00",
+    "basis": "用户提供的物理1至6号鱼眼标注；用户再次确认通道49看不到的是4号机，并确认通道49可见亮绿灯机台为5号机。",
+    "known_green_validation": {
+      "machine": "4",
+      "source": "fisheye1",
+      "start_local": "2026-09-02T14:30:00",
+      "window_seconds": 20.0,
+      "green_frames": 35,
+      "frames_sampled": 39
+    }
+  },
+  "sampling": {
+    "step_minutes": 5,
+    "window_seconds": 10.0,
+    "frame_step_seconds": 0.5,
+    "minimum_span_seconds": 9.0,
+    "minimum_green_frames": 2,
+    "strong_single_frame_green_pixels": 12,
+    "ambiguous_review_window_seconds": 20.0,
+    "ambiguous_review_minimum_span_seconds": 19.0,
+    "event_shift_seconds": 65.0,
+    "green_pixel_threshold": 8,
+    "dominance_threshold": 15.0,
+    "parallel_workers": 4,
+    "retry_workers": 1
+  },
+  "scheduled_work_periods": {
+    "day": [
+      ["08:00", "12:00"],
+      ["13:30", "17:30"],
+      ["18:00", "20:00"]
+    ],
+    "night": [
+      ["20:00", "24:00"],
+      ["02:00", "08:00"]
+    ]
+  },
+  "quality_gate": {
+    "minimum_known_coverage_percent": 95.0,
+    "maximum_cross_computer_rate_difference_pp": 1.0,
+    "require_all_six_machines": true,
+    "require_exact_machine_source_mapping": true,
+    "fail_closed_on_decode_error": true,
+    "minimum_machines_with_running_sample_for_queries_at_least_minutes": {
+      "query_minutes": 60,
+      "machines": 1
+    }
+  }
+}

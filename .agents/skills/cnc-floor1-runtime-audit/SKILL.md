@@ -1,23 +1,22 @@
 ---
 name: cnc-floor1-runtime-audit
-description: Audit the six first-floor CNC milling machines from the fixed channel-49 tower-light ROIs and report reproducible green-light runtime rates, stopped periods, unknown coverage, and result fingerprints. Use when the user asks about 一楼电脑锣、六台电脑锣、电脑锣开机率、运行率、绿灯、停机时段、白班开机率、夜班开机率, or wants the same CNC runtime query compared across computers. Do not use this skill for personnel attendance, off-post, phone use, or seated-position behavior.
+description: Audit the six first-floor CNC milling machines from the versioned channel-49 plus fisheye-1 tower-light ROIs and report reproducible green-light runtime rates, stopped periods, unknown coverage, and result fingerprints. Use when the user asks about 一楼电脑锣、六台电脑锣、电脑锣开机率、运行率、绿灯、停机时段、白班开机率、夜班开机率, or wants the same CNC runtime query compared across computers. Do not use this skill for personnel attendance, off-post, phone use, or seated-position behavior.
 ---
 
 # 一楼电脑锣六台机开机率
 
 ## 唯一正式口径
 
-正式结果只能使用仓库中的 `config/cnc-floor1-runtime-v2.json` 和本技能脚本。固定映射为：
+正式结果只能使用仓库中的 `config/cnc-floor1-runtime-v3.json` 和本技能脚本。固定映射为：
 
-- 录像机：`nvr-main-02`
-- 通道：`49`（一楼电脑锣过道）
-- 轨道：`4901`
-- 规则版本：`cnc-floor1-green-blink-v2.1`
-- 当前标定画面：`1280×720`，六个灯位坐标随配置进入查询指纹
+- 1、2、3、5、6号机：`nvr-main-02` 通道 `49` / 轨道 `4901`（一楼电脑锣过道，`1280×720`）
+- 4号机：`nvr-main-02` 通道 `2` / 轨道 `201`（一楼鱼眼1，`2560×1440`）
+- 规则版本：`cnc-floor1-green-blink-v3.0-dual-view`
+- 六台物理编号、每台唯一来源和固定灯位坐标随配置进入查询指纹
 
-通道 `30` 是人员侧道辅助视角，不得用于六台绿灯开机率。不要从旧对话、旧结果目录或聊天临时代码读取机台数字。
+通道 `30` 是人员侧道辅助视角，不得用于六台绿灯开机率。鱼眼1只补通道49看不到的物理4号机；不得把鱼眼1的其他灯位重复并入分母。不要从旧对话、旧结果目录或聊天临时代码读取机台数字。
 
-当前标定从 `2026-08-28 00:00:00` 起适用。查询更早录像时，必须明确写“当前v2标定不适用于该历史画面”，使用经审核的历史标定另建规则版本；不得把当前坐标静默套到旧鱼眼画面。
+当前标定从 `2026-08-28 00:00:00` 起适用。查询更早录像时，必须明确写“当前v3标定不适用于该历史画面”，使用经审核的历史标定另建规则版本；不得把当前坐标静默套到其他画面。
 
 ## 班次与分母
 
@@ -68,7 +67,8 @@ python3 .agents/skills/cnc-floor1-runtime-audit/scripts/collect_runtime.py \
 - 六台机都有计划采样点；
 - 有效生产时段每台机和六台合计的已知覆盖率均不低于95%；
 - 没有最终仍失败的回放窗口；
-- 当前查询时间不早于v2标定生效时间；
+- 当前查询时间不早于v3标定生效时间；
+- 每台机只来自配置指定的唯一画面，4号必须来自鱼眼1、5号必须来自通道49；
 - 仓库、资料包、规则、绝对时间和参数已生成同一 `query_id`。
 
 跨电脑比较时必须先确认两个 `query_id` 完全一致，再运行：
@@ -84,7 +84,7 @@ python3 scripts/compare_monitor_results.py \
 
 只发一次最终结果，至少包含：
 
-1. 绝对查询时段、有效生产时段和固定通道49；
+1. 绝对查询时段、有效生产时段，以及“通道49五台 + 鱼眼1补4号”的固定来源；
 2. 1–6号及六台合计的开机率、运行点/已知点；
 3. 未知点数量和已知覆盖率；
 4. 质量闸门是否通过；

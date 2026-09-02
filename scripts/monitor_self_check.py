@@ -137,7 +137,7 @@ def reproducibility_contract_status() -> tuple[bool, str]:
 
 
 def cnc_floor1_runtime_contract_status() -> tuple[bool, str]:
-    config_path = ROOT / "config" / "cnc-floor1-runtime-v2.json"
+    config_path = ROOT / "config" / "cnc-floor1-runtime-v3.json"
     required = (
         config_path,
         ROOT / ".agents" / "skills" / "cnc-floor1-runtime-audit" / "SKILL.md",
@@ -154,23 +154,47 @@ def cnc_floor1_runtime_contract_status() -> tuple[bool, str]:
         if not target.is_file():
             return False, f"一楼电脑锣开机率契约缺少：{target.relative_to(ROOT)}"
     config = json.loads(config_path.read_text(encoding="utf-8"))
-    if config.get("policy_version") != "cnc-floor1-green-blink-v2.1":
-        return False, "一楼电脑锣开机率规则不是cnc-floor1-green-blink-v2.1"
-    camera = config.get("camera", {})
-    if (camera.get("recorder"), camera.get("channel"), camera.get("track")) != (
-        "nvr-main-02",
-        49,
-        4901,
-    ):
-        return False, "一楼电脑锣开机率固定映射不是nvr-main-02/channel49/track4901"
-    calibration = config.get("calibration", {})
-    if calibration.get("reference_size") != [1280, 720]:
-        return False, "一楼电脑锣当前标定画面不是1280x720"
-    rois = calibration.get("machine_rois", {})
-    if set(rois) != {"1", "2", "3", "4", "5", "6"}:
-        return False, "一楼电脑锣没有完整六台灯位"
-    if any(not isinstance(roi, list) or len(roi) != 4 for roi in rois.values()):
-        return False, "一楼电脑锣灯位坐标格式不正确"
+    if config.get("policy_version") != "cnc-floor1-green-blink-v3.0-dual-view":
+        return False, "一楼电脑锣开机率规则不是cnc-floor1-green-blink-v3.0-dual-view"
+    sources = config.get("sources", {})
+    if set(sources) != {"passage49", "fisheye1"}:
+        return False, "一楼电脑锣双通道来源不完整"
+    expected_cameras = {
+        "passage49": ("nvr-main-02", 49, 4901, [1280, 720]),
+        "fisheye1": ("nvr-main-02", 2, 201, [2560, 1440]),
+    }
+    machine_sources: dict[str, str] = {}
+    for source_id, expected in expected_cameras.items():
+        source = sources[source_id]
+        camera = source.get("camera", {})
+        calibration = source.get("calibration", {})
+        actual = (
+            camera.get("recorder"),
+            camera.get("channel"),
+            camera.get("track"),
+            calibration.get("reference_size"),
+        )
+        if actual != expected:
+            return False, f"一楼电脑锣{source_id}固定映射不正确"
+        rois = calibration.get("machine_rois", {})
+        if any(not isinstance(roi, list) or len(roi) != 4 for roi in rois.values()):
+            return False, f"一楼电脑锣{source_id}灯位坐标格式不正确"
+        for machine in rois:
+            if machine in machine_sources:
+                return False, f"一楼电脑锣{machine}号机重复分配来源"
+            machine_sources[machine] = source_id
+    expected_machine_sources = {
+        "1": "passage49",
+        "2": "passage49",
+        "3": "passage49",
+        "4": "fisheye1",
+        "5": "passage49",
+        "6": "passage49",
+    }
+    if machine_sources != expected_machine_sources:
+        return False, "一楼电脑锣不是49通道五台加鱼眼1补4号机的固定映射"
+    if config.get("machine_source_map") != expected_machine_sources:
+        return False, "一楼电脑锣机台来源声明与灯位不一致"
     tolerance = config.get("quality_gate", {}).get(
         "maximum_cross_computer_rate_difference_pp"
     )
@@ -183,7 +207,7 @@ def cnc_floor1_runtime_contract_status() -> tuple[bool, str]:
         sampling.get("strong_single_frame_green_pixels"),
     ) != (20.0, 19.0, 12):
         return False, "一楼电脑锣临界绿帧规则不是20秒/至少19秒/强单帧12像素"
-    return True, "一楼电脑锣v2.1固定通道49、六灯位、临界点延长复核及跨电脑≤1.0个百分点契约已安装"
+    return True, "一楼电脑锣v3双通道固定映射、鱼眼补4号机、临界点延长复核及跨电脑≤1.0个百分点契约已安装"
 
 
 def windows_credential_onboarding_status() -> tuple[bool, str]:

@@ -36,6 +36,81 @@ def load_module(name: str, path: Path):
 
 NVR = load_module("nvr_h264_snapshots_blink", ROOT / "scripts" / "nvr_h264_snapshots.py")
 GREEN = load_module("analyze_cnc_six_green_base", ROOT / "scripts" / "analyze_cnc_six_green.py")
+DEFAULT_CONFIG_PATH = ROOT / "config" / "cnc-floor1-runtime-v2.json"
+ACTIVE_CONFIG = GREEN.CONFIG
+
+
+def build_machine_specs(config: dict) -> dict[str, dict]:
+    """Flatten legacy single-view and v3 multi-view configs by physical machine."""
+    if int(config.get("schema_version", 0)) >= 3:
+        specs: dict[str, dict] = {}
+        for source_id, source in config.get("sources", {}).items():
+            camera = source["camera"]
+            calibration = source["calibration"]
+            for machine, roi in calibration.get("machine_rois", {}).items():
+                if machine in specs:
+                    raise ValueError(f"机台{machine}重复分配到多个画面")
+                specs[machine] = {
+                    "source_id": source_id,
+                    "recorder": camera["recorder"],
+                    "channel": int(camera["channel"]),
+                    "track": int(camera["track"]),
+                    "source_label": camera["source_label"],
+                    "reference_size": tuple(calibration["reference_size"]),
+                    "roi": tuple(roi),
+                }
+        expected_map = config.get("machine_source_map", {})
+        actual_map = {machine: spec["source_id"] for machine, spec in specs.items()}
+        if expected_map and actual_map != expected_map:
+            raise ValueError("machine_source_map与sources中的灯位分配不一致")
+        return specs
+
+    camera = config["camera"]
+    calibration = config["calibration"]
+    return {
+        machine: {
+            "source_id": "primary",
+            "recorder": camera["recorder"],
+            "channel": int(camera["channel"]),
+            "track": int(camera["track"]),
+            "source_label": camera["source_label"],
+            "reference_size": tuple(calibration["reference_size"]),
+            "roi": tuple(roi),
+        }
+        for machine, roi in calibration["machine_rois"].items()
+    }
+
+
+MACHINE_SPECS = build_machine_specs(ACTIVE_CONFIG)
+
+
+def configure(config_path: Path) -> None:
+    global ACTIVE_CONFIG, MACHINE_SPECS
+    ACTIVE_CONFIG = json.loads(config_path.read_text(encoding="utf-8"))
+    MACHINE_SPECS = build_machine_specs(ACTIVE_CONFIG)
+
+
+def specs_by_source() -> dict[str, dict[str, dict]]:
+    grouped: dict[str, dict[str, dict]] = {}
+    for machine, spec in MACHINE_SPECS.items():
+        grouped.setdefault(spec["source_id"], {})[machine] = spec
+    return grouped
+
+
+def scale_roi(
+    roi: tuple[int, int, int, int],
+    image_size: tuple[int, int],
+    reference_size: tuple[int, int],
+) -> tuple[int, int, int, int]:
+    scale_x = image_size[0] / reference_size[0]
+    scale_y = image_size[1] / reference_size[1]
+    left, top, right, bottom = roi
+    return (
+        round(left * scale_x),
+        round(top * scale_y),
+        round(right * scale_x),
+        round(bottom * scale_y),
+    )
 
 
 def redact_error(value: str) -> str:
@@ -56,6 +131,7 @@ def checkpoint_path(output: Path, episode_id: str) -> Path:
 
 def decode_episode(
     row: dict[str, str],
+    source_specs: dict[str, dict],
     credentials: dict,
     output: Path,
     seconds: float,
@@ -76,14 +152,14 @@ def decode_episode(
 
     event = datetime.fromisoformat(row["start_local"]).replace(tzinfo=NVR.LOCAL_TZ)
     event += timedelta(seconds=event_shift_seconds)
-    stream_url = NVR.playback_url(
-        row["recorder"], int(row["channel"]) * 100 + 1, event, credentials
-    )
+    source_id = row.get("source_id", "primary")
+    track = int(row.get("track") or next(iter(source_specs.values()))["track"])
+    stream_url = NVR.playback_url(row["recorder"], track, event, credentials)
     container = av.open(
         stream_url,
         options={"rtsp_transport": "tcp", "stimeout": "15000000"},
     )
-    observations = {machine: [] for machine in GREEN.MACHINE_ROIS}
+    observations = {machine: [] for machine in source_specs}
     offsets: list[float] = []
     decoded_sizes: set[tuple[int, int]] = set()
     review_needed: bool | None = None
@@ -114,8 +190,8 @@ def decode_episode(
             decoded_sizes.add(image.size)
             offsets.append(offset)
             next_offset = offset + step
-            for machine, reference_roi in GREEN.MACHINE_ROIS.items():
-                roi = GREEN.scaled_roi(reference_roi, image.size)
+            for machine, spec in source_specs.items():
+                roi = scale_roi(spec["roi"], image.size, spec["reference_size"])
                 pixels, dominance, maximum = GREEN.green_metrics(image, roi)
                 observations[machine].append(
                     {
@@ -176,6 +252,11 @@ def decode_episode(
                 "shift": shift,
                 "working": int(GREEN.is_working_time(start)),
                 "machine": machine,
+                "source_id": source_id,
+                "source_label": source_specs[machine]["source_label"],
+                "recorder": row["recorder"],
+                "channel": int(row["channel"]),
+                "track": track,
                 "frames_sampled": len(offsets),
                 "window_span_seconds": round(span, 3),
                 "green_frames": len(green_values),
@@ -204,11 +285,15 @@ def decode_episode(
     return result
 
 
-def unknown_result(row: dict[str, str], error: str) -> dict:
+def unknown_result(
+    row: dict[str, str], error: str, source_specs: dict[str, dict] | None = None
+) -> dict:
     start = datetime.fromisoformat(row["start_local"])
     shift_date, shift = shift_fields(start)
+    source_id = row.get("source_id", "primary")
+    selected_specs = source_specs or specs_by_source().get(source_id, {})
     records = []
-    for machine in GREEN.MACHINE_ROIS:
+    for machine, spec in selected_specs.items():
         records.append(
             {
                 "episode_id": row["episode_id"],
@@ -217,6 +302,11 @@ def unknown_result(row: dict[str, str], error: str) -> dict:
                 "shift": shift,
                 "working": int(GREEN.is_working_time(start)),
                 "machine": machine,
+                "source_id": source_id,
+                "source_label": spec["source_label"],
+                "recorder": row["recorder"],
+                "channel": int(row["channel"]),
+                "track": int(row.get("track") or spec["track"]),
                 "frames_sampled": 0,
                 "window_span_seconds": 0,
                 "green_frames": 0,
@@ -265,7 +355,7 @@ def write_outputs(
     shift_keys = sorted({(record["shift_date"], record["shift"]) for record in all_records})
     for shift_date, shift in shift_keys:
         for period, effective_only in periods:
-            for machine in (*GREEN.MACHINE_ROIS.keys(), "六台合计"):
+            for machine in (*MACHINE_SPECS.keys(), "六台合计"):
                 group = [
                     record
                     for record in all_records
@@ -304,8 +394,8 @@ def write_outputs(
         writer.writerows(summary_rows)
 
     payload = {
-        "policy_version": GREEN.CONFIG["policy_version"],
-        "config": str(GREEN.CONFIG_PATH),
+        "policy_version": ACTIVE_CONFIG["policy_version"],
+        "config": settings.get("config", str(DEFAULT_CONFIG_PATH)),
         "settings": settings,
         "episodes": len(rows),
         "machine_windows": len(all_records),
@@ -315,34 +405,71 @@ def write_outputs(
         json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
-    quality = GREEN.CONFIG["quality_gate"]
+    quality = ACTIVE_CONFIG["quality_gate"]
     reasons: list[str] = []
     if failures and quality["fail_closed_on_decode_error"]:
         reasons.append(f"最终仍有{len(failures)}个回放窗口失败")
-    expected_size = "x".join(str(item) for item in GREEN.REFERENCE_SIZE)
-    observed_sizes = {
-        size
-        for record in all_records
-        for size in str(record.get("decoded_sizes", "")).split(";")
-        if size
+    expected_sizes = {
+        source_id: "x".join(str(item) for item in next(iter(source_specs.values()))["reference_size"])
+        for source_id, source_specs in specs_by_source().items()
     }
-    if observed_sizes and observed_sizes != {expected_size}:
-        reasons.append(
-            f"解码画面尺寸{sorted(observed_sizes)}与v2标定{expected_size}不一致"
+    observed_sizes_by_source: dict[str, set[str]] = {
+        source_id: set() for source_id in expected_sizes
+    }
+    for record in all_records:
+        source_id = str(record.get("source_id") or "primary")
+        observed_sizes_by_source.setdefault(source_id, set()).update(
+            size
+            for size in str(record.get("decoded_sizes", "")).split(";")
+            if size
         )
+    for source_id, observed_sizes in observed_sizes_by_source.items():
+        expected_size = expected_sizes.get(source_id)
+        if expected_size and observed_sizes and observed_sizes != {expected_size}:
+            reasons.append(
+                f"{source_id}解码画面尺寸{sorted(observed_sizes)}与标定{expected_size}不一致"
+            )
 
     effective_rows = [
         row
         for row in summary_rows
         if row["period"] == "有效生产时段"
-        and row["machine"] in GREEN.MACHINE_ROIS
+        and row["machine"] in MACHINE_SPECS
         and row["planned_samples"]
     ]
     if quality["require_all_six_machines"]:
         represented = {row["machine"] for row in effective_rows}
-        missing = sorted(set(GREEN.MACHINE_ROIS) - represented)
+        missing = sorted(set(MACHINE_SPECS) - represented)
         if missing:
             reasons.append("有效生产时段缺少机台：" + "、".join(missing))
+    if quality.get("require_exact_machine_source_mapping"):
+        wrong_source = sorted(
+            {
+                f"{record['machine']}号:{record.get('source_id', 'primary')}"
+                for record in all_records
+                if record["machine"] in MACHINE_SPECS
+                and str(record.get("source_id") or "primary")
+                != MACHINE_SPECS[record["machine"]]["source_id"]
+            }
+        )
+        if wrong_source:
+            reasons.append("机台来源映射不一致：" + "、".join(wrong_source))
+        duplicate_samples = sorted(
+            {
+                f"{start}{machine}号"
+                for start, machine in {
+                    (record["start_local"], record["machine"])
+                    for record in all_records
+                }
+                if sum(
+                    record["start_local"] == start and record["machine"] == machine
+                    for record in all_records
+                )
+                != 1
+            }
+        )
+        if duplicate_samples:
+            reasons.append("机台采样来源重复或缺失：" + "、".join(duplicate_samples[:12]))
     minimum_coverage = float(quality["minimum_known_coverage_percent"])
     low_coverage = [
         row
@@ -359,7 +486,7 @@ def write_outputs(
     if start_times:
         query_minutes = (
             (max(start_times) - min(start_times)).total_seconds() / 60
-            + float(GREEN.CONFIG["sampling"]["step_minutes"])
+            + float(ACTIVE_CONFIG["sampling"]["step_minutes"])
         )
         response_rule = quality[
             "minimum_machines_with_running_sample_for_queries_at_least_minutes"
@@ -379,10 +506,13 @@ def write_outputs(
 
     quality_gate = "pass" if not reasons else "needs_review"
     qc_payload = {
-        "policy_version": GREEN.CONFIG["policy_version"],
+        "policy_version": ACTIVE_CONFIG["policy_version"],
         "quality_gate": quality_gate,
-        "expected_decoded_size": expected_size,
-        "observed_decoded_sizes": sorted(observed_sizes),
+        "expected_decoded_sizes": expected_sizes,
+        "observed_decoded_sizes": {
+            source_id: sorted(sizes)
+            for source_id, sizes in observed_sizes_by_source.items()
+        },
         "minimum_known_coverage_percent": minimum_coverage,
         "reasons": reasons,
         "failures": failures,
@@ -414,7 +544,7 @@ def write_outputs(
         "metrics": metrics,
         "notes": reasons
         or [
-            "通道49六个固定灯位；每5分钟连续读取10秒，临界点自动延长到20秒；未知点不并入停机。"
+            "按版本化机台来源映射读取固定灯位；每5分钟连续读取10秒，临界点自动延长到20秒；未知点不并入停机。"
         ],
     }
     (output / "metrics-input.json").write_text(
@@ -424,10 +554,16 @@ def write_outputs(
 
 
 def main() -> int:
+    preliminary = argparse.ArgumentParser(add_help=False)
+    preliminary.add_argument("--config", type=Path, default=DEFAULT_CONFIG_PATH)
+    preliminary_args, _ = preliminary.parse_known_args()
+    configure(preliminary_args.config.expanduser().resolve())
+
     parser = argparse.ArgumentParser()
     parser.add_argument("episodes", type=Path)
     parser.add_argument("output", type=Path)
-    sampling = GREEN.CONFIG["sampling"]
+    parser.add_argument("--config", type=Path, default=preliminary_args.config)
+    sampling = ACTIVE_CONFIG["sampling"]
     parser.add_argument("--seconds", type=float, default=sampling["window_seconds"])
     parser.add_argument("--step", type=float, default=sampling["frame_step_seconds"])
     parser.add_argument(
@@ -481,6 +617,7 @@ def main() -> int:
         raise SystemExit("no episodes selected")
 
     settings = {
+        "config": str(args.config.expanduser().resolve()),
         "seconds": args.seconds,
         "step": args.step,
         "minimum_span": args.minimum_span,
@@ -494,11 +631,29 @@ def main() -> int:
         "workers": args.workers,
     }
     results = []
+    grouped_specs = specs_by_source()
     with ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
-        futures = {
-            pool.submit(
+        futures = {}
+        for row in rows:
+            source_id = row.get("source_id", "primary")
+            source_specs = grouped_specs.get(source_id)
+            if not source_specs:
+                result = unknown_result(row, f"unknown source_id: {source_id}", {})
+                results.append(result)
+                continue
+            sample_spec = next(iter(source_specs.values()))
+            if (
+                row.get("recorder") != sample_spec["recorder"]
+                or int(row.get("channel", -1)) != sample_spec["channel"]
+                or int(row.get("track") or sample_spec["track"]) != sample_spec["track"]
+            ):
+                result = unknown_result(row, "episode camera mapping does not match config", source_specs)
+                results.append(result)
+                continue
+            future = pool.submit(
                 decode_episode,
                 row,
+                source_specs,
                 credentials,
                 args.output,
                 args.seconds,
@@ -512,17 +667,16 @@ def main() -> int:
                 args.ambiguous_review_seconds,
                 args.ambiguous_review_minimum_span,
                 args.resume,
-            ): row
-            for row in rows
-        }
+            )
+            futures[future] = (row, source_specs)
         completed = 0
         for future in as_completed(futures):
-            row = futures[future]
+            row, source_specs = futures[future]
             try:
                 result = future.result()
             except Exception as exc:
                 error = redact_error(f"{type(exc).__name__}: {exc}")
-                result = unknown_result(row, error)
+                result = unknown_result(row, error, source_specs)
             results.append(result)
             completed += 1
             if completed % 10 == 0 or completed == len(rows) or result.get("error"):
