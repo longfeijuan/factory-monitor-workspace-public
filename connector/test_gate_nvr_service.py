@@ -52,10 +52,13 @@ class CredentialPortabilityTests(unittest.TestCase):
         self.assertEqual(tuple(hosts), gate.RECORDER_ORDER)
         self.assertEqual(len(set(hosts.values())), 4)
 
+    @mock.patch.object(gate, "keychain_available", return_value=False)
     @mock.patch.object(gate, "windows_credential_manager_available", return_value=False)
     @mock.patch.object(gate, "import_credentials_from_dingtalk")
     @mock.patch.object(gate, "load_stored_credentials", return_value=(None, None))
-    def test_non_macos_import_stays_in_memory(self, _stored, imported, _windows_available):
+    def test_non_macos_import_stays_in_memory(
+        self, _stored, imported, _windows_available, _keychain_available
+    ):
         imported.return_value = self.credentials
         credentials, source = gate.load_credentials(True, "dws")
         self.assertEqual(credentials, self.credentials)

@@ -8,6 +8,12 @@ GitHub 仓库负责复制：监控问答规则、摄像头脱敏目录、只读�
 
 4台获批 NVR 地址已经内置在公开项目中。只有需要查询真实录像的电脑，才必须通过公司批准的安全渠道取得主厂区与材多的只读用户名和密码，并接入公司内网或获批 VPN。普通使用者不需要钉钉 `dws` 或黄伟工作群权限；`dws` 只供指定资料同步人读取内部原始发布渠道。因为安全和隐私要求，用户名密码、原始录像、截图、人员参考图和本机历史运行结果不会跟随 GitHub 同步。
 
+## Mac 一键安装（推荐）
+
+[下载 Mac 一键安装器](https://github.com/longfeijuan/factory-monitor-mac-installer/releases/latest/download/FactoryMonitor-Mac-Installer.zip)
+
+同事不需要 GitHub 账号。第一次右键打开安装器，只输入统一的监控只读账号和密码，各一次；4台监控地址已经预置，凭据只保存到 macOS 钥匙串。
+
 ## Windows 一键安装（推荐）
 
 同事直接打开下面这个固定公开链接，不需要注册或登录 GitHub：
@@ -27,6 +33,10 @@ GitHub 仓库负责复制：监控问答规则、摄像头脱敏目录、只读�
 
 ## 手动安装（故障排查备用）
 
+Mac 推荐直接使用[公开一键安装器](https://github.com/longfeijuan/factory-monitor-mac-installer/releases/latest/download/FactoryMonitor-Mac-Installer.zip)。安装器已预置录像机地址，不需要 GitHub 账号；首次只输入统一的监控只读账号和密码，各一次。
+
+也可以手动匿名克隆：
+
 ```bash
 git clone https://github.com/longfeijuan/factory-monitor-workspace-public.git
 cd factory-monitor-workspace-public
@@ -45,6 +55,17 @@ pnpm test
 手动安装时，在 Codex 中新增本地项目，把克隆后的仓库根目录设为主目录。不要只把它作为第二附加目录：Codex 从主目录自动发现 `AGENTS.md`、`.agents/skills/` 和 `.codex/environments/environment.toml`。
 
 ## 首次实时查询
+
+### Mac
+
+Mac 使用一键安装器时，凭据已经保存到系统钥匙串，直接执行：
+
+```bash
+python3 scripts/monitor_self_check.py --live
+python3 connector/gate_nvr_service.py --check
+```
+
+### Windows
 
 安装器会自动检查本机凭据状态。地址不需要准备，也不需要手工输入。若安装时暂未取得公司批准的只读用户名和密码，之后在项目目录双击 `SETUP-NVR-CREDENTIALS.cmd`；先输入主厂区账号密码，再输入材多账号密码，材多相同时可直接回车沿用主厂区。输入密码时屏幕不会显示字符。也可以手动执行：
 
@@ -67,7 +88,7 @@ python3 scripts/monitor_self_check.py
 
 同步人审核变更后提交并推送 GitHub；其他电脑通过 `git pull` 获取更新。
 
-在 macOS 上，连接器从系统钥匙串读取凭据。换机时不要导出旧电脑钥匙串、Windows 凭据、配置 JSON 或聊天里的密码；应在新电脑重新从获批来源安全录入。
+在 macOS 上，一键安装器把凭据存入系统钥匙串，连接器直接读取。换机时不要导出旧电脑钥匙串、Windows 凭据、配置 JSON 或聊天里的密码；应在新电脑重新从获批来源安全录入。
 
 ### Windows 查询材多监控
 

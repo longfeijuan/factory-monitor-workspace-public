@@ -17,6 +17,8 @@ GitHub 链接会分发代码、脱敏目录、监控规则和4台获批内网地
 
 ## 手动安装或在 Mac 上使用
 
+Mac 推荐直接使用[公开一键安装器](https://github.com/longfeijuan/factory-monitor-mac-installer/releases/latest/download/FactoryMonitor-Mac-Installer.zip)。安装器匿名下载公开脱敏项目，预置4台录像机地址，并把首次输入一次的统一只读账号和密码保存到 macOS 钥匙串。
+
 1. 安装 Codex、Git、Python 3、Node.js 22+ 和 pnpm。只有指定资料同步人需要安装并登录公司授权的 `dws` 钉钉 CLI；普通实时查询使用本机安全保存的 NVR 只读连接项。
 2. 匿名克隆公开脱敏仓库 [longfeijuan/factory-monitor-workspace-public](https://github.com/longfeijuan/factory-monitor-workspace-public)，再在 Codex 中把仓库根目录设为项目主目录。这样 Codex 会自动读取 `AGENTS.md` 和 `.agents/skills/` 下的监控流程。
 3. 运行离线自检：
@@ -31,7 +33,7 @@ pnpm test
 
 只有运行 YOLO 人体/物品候选脚本时才需要另装 `requirements-ml.txt`；普通 NVR 抽帧、开机率和人员人工复核不需要下载整套机器学习依赖。
 
-4. 普通使用者不需要加入“黄伟工作群”；仓库已经包含审核过的脱敏摄像头资料和4台获批内网地址。Windows 首次需要查询真实录像时，双击 `SETUP-NVR-CREDENTIALS.cmd`，只把通过公司批准安全渠道取得的主厂区与材多只读用户名和密码隐藏录入 Windows 凭据管理器；材多账号相同时可直接回车沿用主厂区。只有资料同步人才登录 `dws` 并运行第一条黄伟群同步命令：
+4. 普通使用者不需要 GitHub 账号，也不需要加入“黄伟工作群”；仓库已经包含审核过的脱敏摄像头资料和4台获批内网地址。Windows 首次需要查询真实录像时，双击 `SETUP-NVR-CREDENTIALS.cmd`；Mac 一键安装器会把首次输入一次的统一只读账号和密码保存到系统钥匙串。只有资料同步人才登录 `dws` 并运行第一条黄伟群同步命令：
 
 ```bash
 # 仅资料同步人执行

@@ -25,7 +25,7 @@
 - 上游连接器：`GATE_PERSON_AUDIT_BASE_URL`，可选令牌由 `GATE_PERSON_AUDIT_TOKEN` 提供；
 - 上游需实现 `GET /health` 与 `POST /v1/coverage`，连接失败统一返回 `unknown`。
 
-仓库中的 `connector/gate_nvr_service.py` 已实现上述契约：使用海康 Digest + ISAPI 只读搜索。macOS 将首次从已授权黄伟工作群导入的凭据保存到系统钥匙串；其他系统只在当前进程内存中保留。服务只绑定本机回环地址，并会对回放URI做不可逆摘要后才返回证据编号。
+仓库中的 `connector/gate_nvr_service.py` 已实现上述契约：使用海康 Digest + ISAPI 只读搜索。macOS 一键安装器会把使用者首次输入的只读凭据保存到系统钥匙串；其他系统只在当前进程内存中保留。服务只绑定本机回环地址，并会对回放URI做不可逆摘要后才返回证据编号。
 
 ## 3. Luna 编排契约
 
