@@ -4,8 +4,17 @@ name = "Factory Monitor"
 [setup]
 script = "python3 -m pip install -r requirements-monitor.txt && pnpm install --frozen-lockfile"
 
+[setup.darwin]
+script = "python3 -m pip install -r requirements-monitor.txt"
+
 [setup.win32]
 script = "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/install-windows.ps1 -SkipSystemDependencies -NoCodexLaunch"
+
+[[actions]]
+name = "Mac 轻量监控自检"
+icon = "test"
+command = "python3 scripts/monitor_self_check.py --lightweight"
+platform = "darwin"
 
 [[actions]]
 name = "Windows 全量自检"

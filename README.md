@@ -15,20 +15,21 @@
 
 GitHub 链接会分发代码、脱敏目录、监控规则和4台获批内网地址，但绝不携带用户名或密码。真实录像要求同事位于公司内网或获批 VPN，并通过公司批准的安全渠道取得两组只读账号密码，在自己的电脑上完成本机录入；凭据不进入 GitHub、项目文件、报告或聊天记录。`dws` 只供指定资料同步人读取内部原始发布渠道，普通查询不依赖 `dws`。完整说明见 [Windows/第二台电脑安装说明](docs/SECOND_COMPUTER_SETUP.md)。
 
-## 手动安装或在 Mac 上使用
+## Mac 监控查询轻量版
 
 Mac 推荐直接使用[公开一键安装器](https://github.com/longfeijuan/factory-monitor-mac-installer/releases/latest/download/FactoryMonitor-Mac-Installer.zip)。安装器匿名下载公开脱敏项目，预置4台录像机地址，并把首次输入一次的统一只读账号和密码保存到 macOS 钥匙串。
 
-1. 安装 Codex、Git、Python 3、Node.js 22+ 和 pnpm。只有指定资料同步人需要安装并登录公司授权的 `dws` 钉钉 CLI；普通实时查询使用本机安全保存的 NVR 只读连接项。
+轻量版只安装监控查询所需的 Python 环境，不安装约 892MB 的网页工作台依赖。人数、开机率、运行率、抽帧、证据图、一致性规则以及监控地址和凭据读取方式均与完整版相同；区别只是不能直接启动可选的网页调查工作台。
+
+1. 安装 Codex、Git 和 Python 3。只有指定资料同步人需要安装并登录公司授权的 `dws` 钉钉 CLI；普通实时查询使用本机安全保存的 NVR 只读连接项。
 2. 匿名克隆公开脱敏仓库 [longfeijuan/factory-monitor-workspace-public](https://github.com/longfeijuan/factory-monitor-workspace-public)，再在 Codex 中把仓库根目录设为项目主目录。这样 Codex 会自动读取 `AGENTS.md` 和 `.agents/skills/` 下的监控流程。
 3. 运行离线自检：
 
 ```bash
-python3 scripts/monitor_self_check.py
-pnpm install --frozen-lockfile
 python3 -m pip install -r requirements-monitor.txt
-pnpm run test:connector
-pnpm test
+python3 scripts/monitor_self_check.py --lightweight
+python3 -m unittest connector/test_gate_nvr_service.py connector/test_side_door_monitor.py
+python3 -m unittest discover -s tests -p 'test_*.py'
 ```
 
 只有运行 YOLO 人体/物品候选脚本时才需要另装 `requirements-ml.txt`；普通 NVR 抽帧、开机率和人员人工复核不需要下载整套机器学习依赖。
@@ -74,9 +75,10 @@ Codex 会先读取仓库内 `camera-data/current/SOURCE.json` 的资料版本，
 
 ## 调查工作台
 
-仓库仍包含丢失物品调查网页，可按脱敏目录推荐最小回看路线、检查录像覆盖并导出人工复核事件单：
+仓库仍包含可选的丢失物品调查网页。轻量版不会安装它的依赖；确实需要网页工作台时，再手动安装 Node.js 22+ 和 pnpm，并运行：
 
 ```bash
+pnpm install --frozen-lockfile
 pnpm run connector
 pnpm run dev
 ```

@@ -17,6 +17,15 @@ ROOT = Path(__file__).resolve().parents[1]
 CURRENT = ROOT / "camera-data" / "current"
 
 
+def tool_is_required(name: str, *, lightweight: bool, source_sync: bool) -> bool:
+    """Return whether a tool is mandatory for the selected installation profile."""
+    if name == "python":
+        return True
+    if name in {"node", "pnpm"}:
+        return not lightweight
+    return source_sync and name == "dws"
+
+
 def verify_manifest() -> tuple[bool, str]:
     manifest = CURRENT / "MANIFEST.sha256"
     source = CURRENT / "SOURCE.json"
@@ -257,6 +266,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="监控项目跨电脑自检")
     parser.add_argument("--live", action="store_true", help="同时要求本机已安全保存完整NVR只读连接项")
     parser.add_argument("--source-sync", action="store_true", help="资料同步人额外检查钉钉CLI")
+    parser.add_argument(
+        "--lightweight",
+        action="store_true",
+        help="监控查询轻量模式：保留Python监控能力，不要求可选网页工作台的Node.js和pnpm",
+    )
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
 
@@ -286,7 +300,11 @@ def main() -> int:
     }
     for name, value in tools.items():
         exists = bool(value and Path(value).exists())
-        required = name in {"python", "node", "pnpm"} or (args.source_sync and name == "dws")
+        required = tool_is_required(
+            name,
+            lightweight=args.lightweight,
+            source_sync=args.source_sync,
+        )
         checks.append(
             {
                 "name": f"tool_{name}",
@@ -316,7 +334,12 @@ def main() -> int:
         )
 
     failed = [item for item in checks if item["required"] and not item["ok"]]
-    payload = {"ok": not failed, "project": str(ROOT), "checks": checks}
+    payload = {
+        "ok": not failed,
+        "profile": "lightweight" if args.lightweight else "full",
+        "project": str(ROOT),
+        "checks": checks,
+    }
     if args.json:
         print(json.dumps(payload, ensure_ascii=False, indent=2))
     else:
