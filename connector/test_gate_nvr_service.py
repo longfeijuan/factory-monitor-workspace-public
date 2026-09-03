@@ -52,6 +52,16 @@ class CredentialPortabilityTests(unittest.TestCase):
         self.assertEqual(tuple(hosts), gate.RECORDER_ORDER)
         self.assertEqual(len(set(hosts.values())), 4)
 
+    def test_macos_keychain_is_isolated_from_safety_automation(self):
+        self.assertEqual(
+            gate._keychain_service("nvr-main-02"),
+            "com.codex.factory-monitor-workspace.nvr-main-02",
+        )
+        self.assertNotEqual(
+            gate._keychain_service("nvr-main-02"),
+            "com.codex.gate-person-audit.nvr-main-02",
+        )
+
     @mock.patch.object(gate, "keychain_available", return_value=False)
     @mock.patch.object(gate, "windows_credential_manager_available", return_value=False)
     @mock.patch.object(gate, "import_credentials_from_dingtalk")

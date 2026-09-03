@@ -43,7 +43,9 @@ from urllib.request import (
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 CAMERA_FILE = PROJECT_ROOT / "public" / "data" / "cameras.json"
 NVR_ENDPOINT_FILE = PROJECT_ROOT / "config" / "nvr-endpoints.json"
-KEYCHAIN_PREFIX = "com.codex.gate-person-audit"
+# Public coworker installs must not share credentials with long-running local
+# safety automations such as the 58-side-door monitor.
+KEYCHAIN_PREFIX = "com.codex.factory-monitor-workspace"
 WINDOWS_CREDENTIAL_PREFIX = "FactoryMonitor/NVR"
 DINGTALK_GROUP = "黄伟工作群"
 DINGTALK_START = "2026-07-17T00:00:00+08:00"
