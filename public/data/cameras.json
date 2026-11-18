@@ -688,6 +688,34 @@
     ]
   },
   {
+    "id": "cam-nvr-caiduo-018-20261112",
+    "name": "Camera 01",
+    "sourceName": "Camera 01",
+    "recorder": "nvr-caiduo",
+    "channel": "18",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
+    ]
+  },
+  {
     "id": "cam-nvr-caiduo-019",
     "name": "磨床1号",
     "sourceName": "磨床1号",
@@ -4277,9 +4305,9 @@
     ]
   },
   {
-    "id": "cam-nvr-main-02-017-20260821",
-    "name": "二楼空压机房",
-    "sourceName": "二楼空压机房",
+    "id": "cam-nvr-main-02-017-20261117",
+    "name": "一楼洗手通道",
+    "sourceName": "一楼洗手通道",
     "recorder": "nvr-main-02",
     "channel": "17",
     "onlineClaim": true,
@@ -4514,43 +4542,6 @@
       "human_review_pending",
       "primary_visible_zones_unconfirmed",
       "secondary_visible_zones_unconfirmed"
-    ]
-  },
-  {
-    "id": "cam-nvr-main-02-023",
-    "name": "尾一仓房间",
-    "sourceName": "尾一仓房间",
-    "recorder": "nvr-main-02",
-    "channel": "23",
-    "onlineClaim": false,
-    "evidenceLevel": "E1_source_only",
-    "evidenceScope": "source_name_only",
-    "frameClockStatus": "unverified",
-    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
-    "periods": [],
-    "zones": [
-      "仓储区"
-    ],
-    "capabilities": [
-      "source_name_routing_candidate"
-    ],
-    "routes": [],
-    "unknowns": [
-      "blind_spots_unknown",
-      "building_unknown",
-      "business_route_context_unknown",
-      "camera_time_mapping_unvalidated",
-      "current_scene_unknown",
-      "entry_exit_unknown",
-      "fixed_elements_unknown",
-      "frame_clock_unverified",
-      "historical_scene_unknown",
-      "human_review_pending",
-      "lighting_visibility_unknown",
-      "pixel_evidence_unavailable",
-      "primary_visible_zones_unconfirmed",
-      "secondary_visible_zones_unconfirmed",
-      "view_geometry_unknown"
     ]
   },
   {
@@ -5228,44 +5219,6 @@
       "human_review_pending",
       "primary_visible_zones_unconfirmed",
       "secondary_visible_zones_unconfirmed"
-    ]
-  },
-  {
-    "id": "cam-nvr-main-02-042",
-    "name": "尾1仓铝料房间",
-    "sourceName": "尾1仓铝料房间",
-    "recorder": "nvr-main-02",
-    "channel": "42",
-    "onlineClaim": false,
-    "evidenceLevel": "E1_source_only",
-    "evidenceScope": "source_name_only",
-    "frameClockStatus": "unverified",
-    "timeMappingStatus": "recorder_canary_available_unproven_for_camera",
-    "periods": [],
-    "zones": [
-      "仓储区"
-    ],
-    "capabilities": [
-      "source_name_routing_candidate"
-    ],
-    "routes": [],
-    "unknowns": [
-      "blind_spots_unknown",
-      "building_unknown",
-      "business_route_context_unknown",
-      "camera_time_mapping_unvalidated",
-      "current_scene_unknown",
-      "entry_exit_unknown",
-      "fixed_elements_unknown",
-      "floor_unknown",
-      "frame_clock_unverified",
-      "historical_scene_unknown",
-      "human_review_pending",
-      "lighting_visibility_unknown",
-      "pixel_evidence_unavailable",
-      "primary_visible_zones_unconfirmed",
-      "secondary_visible_zones_unconfirmed",
-      "view_geometry_unknown"
     ]
   },
   {
@@ -6119,6 +6072,34 @@
       "human_review_pending",
       "primary_visible_zones_unconfirmed",
       "secondary_visible_zones_unconfirmed"
+    ]
+  },
+  {
+    "id": "cam-nvr-main-03-003-20260904",
+    "name": "三楼楼梯间取水处",
+    "sourceName": "三楼楼梯间取水处",
+    "recorder": "nvr-main-03",
+    "channel": "3",
+    "onlineClaim": true,
+    "evidenceLevel": "E1_source_only",
+    "evidenceScope": "source_name_only",
+    "frameClockStatus": "unverified",
+    "timeMappingStatus": "unverified_after_local_change",
+    "periods": [],
+    "zones": [],
+    "capabilities": [
+      "source_name_routing_candidate"
+    ],
+    "routes": [],
+    "unknowns": [
+      "blind_spots_unknown",
+      "camera_time_mapping_unvalidated",
+      "current_scene_unknown",
+      "frame_clock_unverified",
+      "human_review_pending",
+      "lighting_visibility_unknown",
+      "pixel_evidence_unavailable",
+      "view_geometry_unknown"
     ]
   },
   {

@@ -222,6 +222,19 @@
       "stream_profiles": []
     },
     {
+      "camera_id": "cam-nvr-caiduo-018-20261112",
+      "channel_ref": "18",
+      "display_name_claim": "Camera 01",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-caiduo",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
       "camera_id": "cam-nvr-caiduo-019",
       "channel_ref": "19",
       "display_name_claim": "磨床1号",
@@ -1275,9 +1288,9 @@
       "stream_profiles": []
     },
     {
-      "camera_id": "cam-nvr-main-02-017-20260821",
+      "camera_id": "cam-nvr-main-02-017-20261117",
       "channel_ref": "17",
-      "display_name_claim": "二楼空压机房",
+      "display_name_claim": "一楼洗手通道",
       "enabled_claim": null,
       "metadata_provenance": [
         "offline_maintenance_register"
@@ -1350,19 +1363,6 @@
       "online_claim": true,
       "recorder_id": "nvr-main-02",
       "status_claim": "true",
-      "stream_profiles": []
-    },
-    {
-      "camera_id": "cam-nvr-main-02-023",
-      "channel_ref": "23",
-      "display_name_claim": "尾一仓房间",
-      "enabled_claim": null,
-      "metadata_provenance": [
-        "offline_maintenance_register"
-      ],
-      "online_claim": false,
-      "recorder_id": "nvr-main-02",
-      "status_claim": "false",
       "stream_profiles": []
     },
     {
@@ -1571,19 +1571,6 @@
       "online_claim": true,
       "recorder_id": "nvr-main-02",
       "status_claim": "true",
-      "stream_profiles": []
-    },
-    {
-      "camera_id": "cam-nvr-main-02-042",
-      "channel_ref": "42",
-      "display_name_claim": "尾1仓铝料房间",
-      "enabled_claim": null,
-      "metadata_provenance": [
-        "offline_maintenance_register"
-      ],
-      "online_claim": false,
-      "recorder_id": "nvr-main-02",
-      "status_claim": "false",
       "stream_profiles": []
     },
     {
@@ -1860,6 +1847,19 @@
       "stream_profiles": []
     },
     {
+      "camera_id": "cam-nvr-main-03-003-20260904",
+      "channel_ref": "3",
+      "display_name_claim": "三楼楼梯间取水处",
+      "enabled_claim": null,
+      "metadata_provenance": [
+        "offline_maintenance_register"
+      ],
+      "online_claim": true,
+      "recorder_id": "nvr-main-03",
+      "status_claim": "true",
+      "stream_profiles": []
+    },
+    {
       "camera_id": "cam-nvr-main-03-004",
       "channel_ref": "4",
       "display_name_claim": "食堂2",
@@ -2085,7 +2085,7 @@
   "discovered_channel_count": 160,
   "errors": [],
   "expected_channel_count": 160,
-  "observed_at": "2026-08-25T19:38:05+08:00",
+  "observed_at": "2026-11-17T20:38:40+08:00",
   "privacy": {
     "contains_accounts": false,
     "contains_network_addresses": false,
@@ -2097,7 +2097,7 @@
       "manufacturer": "Hikvision",
       "model": "DS-8864N-R8",
       "firmware_version": "V4.32.115",
-      "observed_channel_count": 29
+      "observed_channel_count": 30
     },
     {
       "recorder_id": "nvr-main-01",
@@ -2111,14 +2111,14 @@
       "manufacturer": "Hikvision",
       "model": "DS-8864N-K8",
       "firmware_version": "V4.32.115",
-      "observed_channel_count": 59
+      "observed_channel_count": 57
     },
     {
       "recorder_id": "nvr-main-03",
       "manufacturer": "Hikvision",
       "model": "DS-8632N-K8",
       "firmware_version": "V4.74.205",
-      "observed_channel_count": 19
+      "observed_channel_count": 20
     }
   ],
   "schema_version": "camera-inventory/v1"
